@@ -1,0 +1,33 @@
+<ion-view title="Bus Routes">
+  <div data-tap-disabled="true" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;"  >
+    <div id="busError" style="visibility: hidden; text-align: center; color: white; position: absolute; width: 100%; height: 100%; z-index: 10; background-color: rgba(0, 0, 0, 0.67)">
+      <div class="row row-center" style="width: inherit; height: inherit;">
+        <div class="col col-100 col-center">
+          <span style="background-color: rgba(0, 0, 0, 0.92); padding: 10px; border-radius: 5px;">
+            {{busError}}
+          </span>
+          <br>
+          <br>
+          <button class="button UWSP-Purple shadow-1  no-border" ng-click="openModal(3)">View All Times</button>
+        </div>
+      </div>
+    </div>
+
+    <leaflet id = "map1" defaults="defaults" markers="markers" center="center" maxbounds="maxbounds">
+    </leaflet>
+
+  </div>
+</ion-view>
+
+<!-- needs to be ouside of ion-view to work on ios -->
+<div class="fab" style="position: absolute; z-index: 20; right: 0;" ng-click="toggleFAB('busFAB')">
+    <div id="busFAB" class="fixed-action-btn" style="bottom:35px; right: 25px;">
+        <a class="UWSP-Gold btn-floating btn-large ">
+            <i id="busFAB-i" class="ion-android-more-vertical"></i>
+        </a>
+        <ul>
+            <li><a class="btn-floating busFAB-content UWSP-Purple" ng-init="tog=1" ng-class='{"UWSP-Gold":tog==1}' ng-click="startCampusConnection(); tog=1" tooltips tooltip-side="left" tooltip-template="Campus Connection"><i class="ion-android-bus" style="transform: scale(0.6,0.6);"></i></a></li>
+            <li><a class="btn-floating busFAB-content UWSP-Purple" ng-class='{"UWSP-Gold":tog==2}' ng-click="startCampusShopping(); tog=2" tooltips tooltip-side="left" tooltip-template="Campus Shopping"><i class="ion-android-bus" style="transform: scale(0.6,0.6);"></i></a></li>
+        </ul>
+    </div>
+</div>

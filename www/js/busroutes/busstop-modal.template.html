@@ -1,0 +1,34 @@
+<div class="modal bottom-sheet" ng-model="building" ng-swipe-down="closeModal(1)" style="height: 48%;">
+  <header class="bar bar-header UWSP-Purple">
+    <h1 class="title white-text">{{stopName}}</h1>
+    <div class="button UWSP-Purple no-border" ng-click="closeModal(1)"><span class="icon ion-close-round"></span></div>
+  </header>
+  <ion-content padding="false" scroll="true" style="margin-top:27px;">
+  <div style="padding: 10px 0px 10px 0px; font-size: 17px; font-weight: bold;">
+  <div class="row" style="padding-left: 0; padding-right: 0; color: white; background-color:#f3ae22;" >
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%; " >Next Stop:</div>
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%; font-family: monospace; font-weight: bolder; text-align: center;" >{{nextStop}}</div>
+  </div>
+  <div class="row" style="padding-left: 0; padding-right: 0; background-color: white;" >
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%;" >Last Stop:</div>
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%;font-family: monospace; font-weight: bolder; text-align: center;" >{{lastStop}}</div>
+  </div>
+  <div class="row" style="padding-left: 0; padding-right: 0;" >
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%;" >First Stop:</div>
+    <div class="col col-50"style="border: 1px solid #6b6b6b; padding: 3% 3% 3% 4%;font-family: monospace; font-weight: bolder; text-align: center;" >{{firstStop}}</div>
+  </div>
+</div>
+  <div class="row" style="text-align: center; padding: 0;">
+    <div class="col col-25">
+      <button class=" button button-positive shadow-1 " ng-click="loadModalData(1)"><i class="ion-arrow-left-c"></i></button>
+    </div>
+    <div class="col col-50">
+      <button class="  button button-positive shadow-1" ng-click="openModal(2)">View All Times</button>
+    </div>
+    <div class="col col-25">
+      <button class=" button button-positive shadow-1 " ng-click="loadModalData(-1)"><i class="ion-arrow-right-c"></i></button>
+    </div>
+  </div>
+
+  </ion-content>
+</div>
