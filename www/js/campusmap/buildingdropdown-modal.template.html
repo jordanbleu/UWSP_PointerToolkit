@@ -1,0 +1,12 @@
+﻿<ion-modal-view ng-model="buildingList" ng-swipe-left="closeModal(3)" ng-swipe-right="closeModal(3)" 
+                style="width: 80%; height: 80%; max-height: 80%; min-height: 80%; top: 10%; left: 10%; right: 10%; bottom: 10%; overflow: hidden;">
+    <header class="bar bar-header UWSP-Purple" style="margin-bottom: 4em;">
+        <h1 class="title white-text">Buildings</h1>
+        <div class="button UWSP-Purple no-border" ng-click="closeModal(3)"><span class="icon ion-close"></span></div>
+    </header>
+    <ion-content padding="true" style="padding: 4em 0 4em 0;">
+        <ul style="margin-top: 0.9em;">
+            <li class="item" ng-repeat="b in buildingList" ng-click="loadModalFromDropdown(b.__data__.properties.id)" style="text-align: center;">{{b.__data__.properties.name}}</li>
+        </ul>
+    </ion-content>
+</ion-modal-view>

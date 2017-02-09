@@ -1,0 +1,66 @@
+<div class="list" style="max-height: 205px; min-height: 205px;">
+<div id="starredDiv" onmousedown="Sports_changeFilterView('starred')">
+   <div class="item item-icon-right" href="#">
+      Starred: <span id="starredFilter" class="filterOutputZone"></span>
+      <div id="starredInner">
+         <fieldset>
+            <label><input id="rdoStarAny" type="radio" name="rdoStar" class="rdoFilter rdoStar" value="All" display="All"> All<br><label>
+            <label><input id="rdoStarStarred" type="radio" name="rdoStar" class="rdoFilter rdoStar" value="Starred" display="Starred"> Starred<br></label>
+            <label><input id="rdoStarNonStarred" type="radio" name="rdoStar" class="rdoFilter rdoStar" value="Non-Starred" display="Non-Starred"> Non-Starred<br></label>
+         </fieldset>
+      </div>
+      <div id="starredBtn">
+         <i class="icon ion-chevron-up" style="right: 1%; top: -32%; font-size: 20px;"></i>
+      </div>
+   </div>
+</div>
+<div id="dateDiv" onmousedown="Sports_changeFilterView('date')">
+   <div class="item item-icon-right" href="#">
+      Date: <span id="dateFilter" class="filterOutputZone"></span>
+      <div id="dateInner">
+         <fieldset>
+            <label><input id="rdoEventDateAny" type="radio" name="rdoEventDate" class="rdoFilter rdoEventDate" value="All" display="All"> All<br><label>
+            <label><input id="rdoEventDateToday" type="radio" name="rdoEventDate" class="rdoFilter rdoEventDate" value="Today" display="Today"> Today<br></label>
+            <label><input id="rdoEventDateThisWeek" type="radio" name="rdoEventDate" class="rdoFilter rdoEventDate" value="This Week" display="This Week"> This Week<br></label>
+            <label><input id="rdoEventDateThisMonth" type="radio" name="rdoEventDate" class="rdoFilter rdoEventDate" value="This Month" display="This Month"> This Month<br></label>
+            <label><input id="rdoEventDateThisYear" type="radio" name="rdoEventDate" class="rdoFilter rdoEventDate" value="This Year" display="This Year"> This Year</label>
+         </fieldset>
+      </div>
+      <div id="dateBtn">
+         <i class="icon ion-chevron-up" style="right: 1%; top: -36%; font-size: 20px;"></i>
+      </div>
+   </div>
+</div>
+<div id="sportDiv" onmousedown="Sports_changeFilterView('sport')">
+   <div class="item item-icon-right" href="#">
+      Sport: <span id="sportFilter" class="filterOutputZone"></span>
+      <div id="sportInner">
+         <fieldset>
+            <label id="sportsItem_%sportsStoreAs%">
+            <input id="rdo_%sportsStoreAs%" type="radio" name="rdoSports" class="rdoFilter rdoSports" display="%sportsDisplayName%" value="%sportsStoreAs%" %sportsChecked%>
+            %sportsDisplayName%
+            <br>
+            </label id="sportsItem_%sportsStoreAs%">
+         </fieldset>
+      </div>
+      <div id="sportBtn">
+         <i class="icon ion-chevron-up" style="right: 1%; top: -43%; font-size: 20px;"></i>
+      </div>
+   </div>
+</div>
+<div id="genderDiv" onmousedown="Sports_changeFilterView('gender')">
+   <div class="item item-icon-right" href="#">
+      Gender: <span id="genderFilter" class="filterOutputZone"></span>
+      <div id="genderInner">
+         <fieldset>
+            <label id="genderItem_%genderStoreAs%"><input id="rdo_%genderStoreAs%" type="radio" name="rdoGender" class="rdoFilter rdoGender" display="%genderDisplayName%" value="%genderStoreAs%" %genderChecked%>
+            %genderDisplayName%<br/>
+            </label id="genderItem_%genderStoreAs%">
+      </div>
+      </fieldset>
+      <div id="genderBtn">
+         <i class="icon ion-chevron-up" style="right: 1%; top: -31%; font-size: 20px;"></i>
+      </div>
+   </div>
+</div>
+
