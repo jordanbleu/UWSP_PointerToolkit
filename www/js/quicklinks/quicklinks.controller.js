@@ -213,6 +213,15 @@ function QuickLinks_startLinks(e) {
 	
 }// end function
 
+// returns true if the URL only has good characters
+function urlHasGoodChars(url) {
+    var res = url.match(/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/);
+    if(res == null)
+        return false;
+    else
+        return true;
+}
+
 // Function endLinkEdit : This function ends the link editing.
 // Parameter saveLinks : Should the currently being edited link be saved to the collection?
 function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
@@ -256,8 +265,16 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 				
 			} else {
 				newLinkTitle = htmlEscape ( $('#newLinkTitle').val().trim() );
-				newLinkURL = $('#newLinkURL').val().trim().replace(" ", "");				
-				
+				newLinkURL = $('#newLinkURL').val().trim().replace(" ", "");
+
+                
+
+
+                // if the user left off the 'http://' from the URL, add it for them
+				if (newLinkURL.substr(0, 7) != "http://" && newLinkURL.substr(0, 8) != "https://") {
+				    newLinkURL = "http://" + newLinkURL; // this makes a big assumption that the URL starts with that 
+				}                                           // but in most cases it does so its okay
+                                
 			}// end if
 			
 			// Set new content
@@ -269,6 +286,8 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 				newLinkTitle = newLinkURL;
 			}// end if
 			
+
+
 			// Check for duplicates
 			duplicates = false;
 			if (newLinkTitle != originalLinkTitle) {
@@ -284,73 +303,82 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 			
 			// If title is already in use
 			if (duplicates) {
-				
-				// Note duplicate link
-				errorMessage += "Duplicate Link Title: A link already has that title. Please choose another title.<br>";
-				finished = false;
-				
+
+			    // Note duplicate link
+			    errorMessage += "Duplicate Link Title: A link already has that title. Please choose another title.<br>";
+			    finished = false;
+			// if the URL is not valid
+			} else if (!isValidURL(newLinkURL)) {
+			    // Note bad URL
+			    errorMessage += "Invalid URL: The URL you entered is not valid.  Please try again.<br/>";
+			    finished = false;
+			} else if (!urlHasGoodChars(newLinkURL)){
+			    // we've got some bad characters in there
+			    errorMessage += "Invalid characters:  The URL you entered has some invalid characters.  Please make sure you've typed it correctly.";
+			    finished = false;
+			
 			} else {
-				
-				// Get new starred status
-				newLinkStarred = currentLinkStar;
-				
-				// If link has title and URL:
-				if ((newLinkTitle != "") && (newLinkURL != "")) {
-					
-					// If cannot connect to internet
-					if ((window.Connection) && (navigator.connection.type == Connection.NONE)) {
-						
-						// Add to errors lack of internet connection
-						errorMessage += "Could not test URL. No internet connection detected. Please connect before adding this link.<br>";
-						finished = false;
-						
-					} else {
-						
-						// Get best URL possible
-						if (!skipVerification) {
-							
-							// Get attempted best URL
-							attemptedBestURL = getBestURL(newLinkURL);
-							if (attemptedBestURL != null) {
-								newLinkURL = attemptedBestURL;
-							} else {
-								finished = false;
-								newLinkURL = null;
-								verificationSuccess = false;
-							}// end if
-							
-						}// end if
-						
-					}// end if
-					
-					// If usable URL or no internet connection present:
-					if (newLinkURL != null) {
-						
-						// If any original link:
-						if (originalLinkIndex >= 0) {
-							
-							// Remove link from all links
-							removedLink = allLinks[originalLinkIndex];
-							allLinks.splice(originalLinkIndex, 1);
-							
-						}// end if
-						
-						// Add new link
-						QuickLinks_addLink(newLinkTitle, newLinkURL, newLinkStarred);
-						
-						// Save all links
-						QuickLinks_saveAllLinks();
-					
-					} else {
-						
-						// Notify of invalid URL, and don't progress
-						errorMessage += "Invalid URL: The URL could not be verified. Make sure there are no typos.<br>";
-						finished = false;
-						
-					}// end if
-					
-				}// end if
-				
+
+			    // Get new starred status
+			    newLinkStarred = currentLinkStar;
+
+			    // If link has title and URL:
+			    if ((newLinkTitle != "") && (newLinkURL != "")) {
+
+			        // If cannot connect to internet
+			        if ((window.Connection) && (navigator.connection.type == Connection.NONE)) {
+
+			            // Add to errors lack of internet connection
+			            errorMessage += "Could not test URL. No internet connection detected. Please connect before adding this link.<br>";
+			            finished = false;
+
+			        } else {
+
+			            // Get best URL possible
+			            if (!skipVerification) {
+
+			                // Get attempted best URL
+			                attemptedBestURL = getBestURL(newLinkURL);
+			                if (attemptedBestURL != null) {
+			                    newLinkURL = attemptedBestURL;
+			                } else {
+			                    finished = false;
+			                    newLinkURL = null;
+			                    verificationSuccess = false;
+			                }// end if
+
+			            }// end if
+
+			        }// end if
+
+			        // If usable URL or no internet connection present:
+			        if (newLinkURL != null) {
+
+			            // If any original link:
+			            if (originalLinkIndex >= 0) {
+
+			                // Remove link from all links
+			                removedLink = allLinks[originalLinkIndex];
+			                allLinks.splice(originalLinkIndex, 1);
+
+			            }// end if
+
+			            // Add new link
+			            QuickLinks_addLink(newLinkTitle, newLinkURL, newLinkStarred);
+
+			            // Save all links
+			            QuickLinks_saveAllLinks();
+
+			        } else {
+
+			            // Notify of invalid URL, and don't progress
+			            errorMessage += "Invalid URL: The URL could not be verified. Make sure there are no typos.<br>";
+			            finished = false;
+
+			        }// end if
+
+			    }// end if
+
 			}// end if
 			
 		}// end if

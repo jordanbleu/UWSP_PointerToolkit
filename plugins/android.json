@@ -8,27 +8,27 @@
     },
     "installed_plugins": {
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.externallinktest400780"
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         }
     }
 }
