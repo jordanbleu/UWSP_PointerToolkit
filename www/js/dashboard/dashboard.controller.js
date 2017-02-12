@@ -3,7 +3,7 @@
   function DashboardController($scope, $ionicHistory,  $timeout, $state) {
     var firstRun = true;
     $scope.$on('$ionicView.beforeEnter', function() {
-      angular.element(document.getElementsByClassName('title')).addClass('mainTitle');
+        angular.element(document.getElementsByClassName('title')).addClass('header-item');
       if (firstRun) {
         angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
         firstRun = false;
