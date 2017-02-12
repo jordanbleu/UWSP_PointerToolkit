@@ -271,12 +271,15 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 
 
                 // if the user left off the 'http://' from the URL, add it for them
-				if (newLinkURL.substr(0, 7) != "http://" && newLinkURL.substr(0, 8) != "https://") {
+				if (newLinkURL.substr(0, 7).toLowerCase() != "http://" && newLinkURL.substr(0, 8).toLowerCase() != "https://") {
 				    newLinkURL = "http://" + newLinkURL; // this makes a big assumption that the URL starts with that 
 				}                                           // but in most cases it does so its okay
                                 
 			}// end if
 			
+		    // make the url lowercase
+			newLinkURL = newLinkURL.toLowerCase();
+
 			// Set new content
 			currentLinkTitle = newLinkTitle;
 			currentLinkContent = newLinkURL;
@@ -286,7 +289,7 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 				newLinkTitle = newLinkURL;
 			}// end if
 			
-
+            
 
 			// Check for duplicates
 			duplicates = false;
@@ -314,7 +317,7 @@ function QuickLinks_endLinkEdit(saveLinks, skipVerification) {
 			    finished = false;
 			} else if (!urlHasGoodChars(newLinkURL)){
 			    // we've got some bad characters in there
-			    errorMessage += "Invalid characters:  The URL you entered has some invalid characters.  Please make sure you've typed it correctly.";
+			    errorMessage += "Invalid characters:  The URL you entered has some invalid characters.  Please make sure you've typed it correctly.<br/>";
 			    finished = false;
 			
 			} else {
