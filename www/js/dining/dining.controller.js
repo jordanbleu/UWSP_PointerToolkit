@@ -282,7 +282,7 @@ function openOrClosed(id, array, sayings, weekTimes)
 //Shows all the content within the clicked dining location
 function changeViewDining(id)
 {
-	var id=id;
+	var id = id;
 	if($('#'+id+':visible').length === 0)
 	{
 		document.getElementById(id).style.display = "inline";	
