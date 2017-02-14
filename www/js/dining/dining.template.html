@@ -1,14 +1,14 @@
 <ion-view cache-view="true" title="Dining Hours">
    <style>
-      #foodCourt, #redVest, #homegrown, #foodForThought, #upperDebot, #lowerDebot, #lowerDebotUp{
+      #foodCourt, #redVest, #homegrown, #foodForThought, #upperDebot, #lowerDebot, #lowerDebotUp, #cpsCafe{
       display:none;
       }
 	  
-      #foodCourtBtn,#redVestBtn, #homegrownBtn, #foodForThoughtBtn, #upperDebotBtn, #lowerDebotBtn{
+      #foodCourtBtn,#redVestBtn, #homegrownBtn, #foodForThoughtBtn, #upperDebotBtn, #lowerDebotBtn, #cpsCafeBtn{
       color: #ebebeb;
       }
 	  
-      #foodCourtOpen, #redVestOpen, #homegrownOpen, #foodForThoughtOpen, #upperDebotOpen, #lowerDebotOpen{
+      #foodCourtOpen, #redVestOpen, #homegrownOpen, #foodForThoughtOpen, #upperDebotOpen, #lowerDebotOpen, #cpsCafeOpen{
       top: -4%;
       }
    </style>
@@ -98,6 +98,21 @@
                </div>
            </a>
          </div>
+    <!--CPS Cafe-->
+         <div onmousedown="changeViewDining('cpsCafe')">
+           <a class="item item-icon-left item-icon-right" href="#">
+             <i class="icon" id="cpsCafeOpen"><object data="assets/img/silverwareGrey.svg" type="image/svg+xml" class="closed"></object></i> 
+             CPS Cafe
+             <div id="cpsCafe">
+               <br /><span class="wrap" id="cpsCafeToday">input</span>
+               <br /><br /><span class="wrap" id="cpsCafeWeek">input</span>
+             </div>
+             <div id="cpsCafeBtn">
+                 <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+             </div>           
+           </a>
+         </div>
     </div>
+   </div>
 </ion-view>
 

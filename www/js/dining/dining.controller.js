@@ -139,8 +139,26 @@ var lowerDebotDaySayings =
 						"11:00AM to 11:00PM", 
 						"11:00AM to 11:00PM"];	
 						
-var lowerDebotWeekTimes="Monday to Friday<br />7:30AM to 11:00PM<br /><br />Saturday and Sunday<br />11:00AM to 11:00PM";	
+var lowerDebotWeekTimes = "Monday to Friday<br />7:30AM to 11:00PM<br /><br />Saturday and Sunday<br />11:00AM to 11:00PM";
 
+/****CPS Cafe****/
+var cpsCafeDaysTimes = [
+                        [1, 7.75, 14.5],
+                        [2, 7.75, 14.5],
+                        [3, 7.75, 14.5],
+                        [4, 7.75, 14.5],
+                        [5, 7.75, 14]
+                       ];
+
+var cpsCafeDaySayings = ["Sorry, we are closed today",
+                         "7:45AM to 2:30PM",
+                         "7:45AM to 2:30PM",
+                         "7:45AM to 2:30PM",
+                         "7:45AM to 2:30PM",
+                         "7:45AM to 2:00PM",
+                         "Sorry, we are closed today"];
+
+var cpsCafeWeekTimes = "Monday to Thursday<br />7:45AM to 2:30PM<br /><br />Friday<br />7:45AM t0 2:00PM<br /><br />Saturday and Sunday<br />Closed";
 
 //Stores all array and string names to call and loop through to display content correctly.
 var diningLocations = [
@@ -149,8 +167,8 @@ var diningLocations = [
 				["homegrown", homegrownDaysTimes, homegrownDaySayings, homegrownWeekTimes],
 				["foodForThought", foodForThoughtDaysTimes, foodForThoughtDaySayings, foodForThoughtWeekTimes],
 				["upperDebot", upperDebotDaysTimes, upperDebotDaySayings, upperDebotWeekTimes],
-				["lowerDebot", lowerDebotDaysTimes, lowerDebotDaySayings, lowerDebotWeekTimes]				
-				];
+				["lowerDebot", lowerDebotDaysTimes, lowerDebotDaySayings, lowerDebotWeekTimes],
+                ["cpsCafe", cpsCafeDaysTimes, cpsCafeDaySayings, cpsCafeWeekTimes]];
 
 				
 //OnLoad
@@ -235,7 +253,7 @@ function openOrClosed(id, array, sayings, weekTimes)
 
 	for(var i=0; i<array.length; i++)
 	{
-		if(array[i][0]==dayOfWeek)
+		if(array[i][0]===dayOfWeek)
 		{
 			if(currentTimeTotalMinutes>=(array[i][1]*60)&& currentTimeTotalMinutes<(array[i][2]*60))
 			{
@@ -265,7 +283,7 @@ function openOrClosed(id, array, sayings, weekTimes)
 function changeViewDining(id)
 {
 	var id=id;
-	if($('#'+id+':visible').length == 0)
+	if($('#'+id+':visible').length === 0)
 	{
 		document.getElementById(id).style.display = "inline";	
 		//Sets the location of the open/closed icon so that it appears to be in the same location when open and closed.
@@ -294,7 +312,11 @@ function changeViewDining(id)
 				document.getElementById(id + "Open").style.top= "-39%";
 				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
-			default:
+		    case "cpsCafe":
+		        document.getElementById(id + "Open").style.top= "-32%";
+		        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
+		        break;
+            default:
 				document.getElementById(id + "Open").style.top= "-32%";
 				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
