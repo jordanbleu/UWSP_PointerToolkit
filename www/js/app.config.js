@@ -51,6 +51,8 @@
 
   }
 
+
+
   angular
   .module('starter')
   .config(config)
@@ -74,11 +76,27 @@
         .removeClass('animated fadeOutUp')
         .addClass('animated fadeInDown');
         $ionicHistory.goBack();
-      }, 600);
+      }, 200); // this is now faster
 
+    
       //$ionicHistory.clearCache();
     }
 
+    // this here code shows the menu
+    $scope.showMenu = function () {
+        $("#dotMenu")
+            .show()
+            .removeClass('animated slideOutUp')
+            .addClass('animated slideInDown');
+            
+        
+    }
+
+      // this here code hides the menu
+    $scope.hideMenu = function () {
+        $("#dotMenu").removeClass('animated slideInDown')            
+            .addClass('animated slideOutUp')
+    }
 
   });
 
