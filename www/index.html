@@ -70,10 +70,33 @@
 	</head>
     <body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important">
         <ion-nav-bar class="UWSP-Purple">
-            <ion-nav-back-button animation="no-animation" class="no-text UWSP-Purple" style="border: 0;" ng-click="myGoBack()">
-                <i class="icon fa fa-chevron-left"></i>
-            </ion-nav-back-button>
+                <ion-nav-back-button animation="no-animation" class="no-text UWSP-Purple" style="border: 0;" ng-click="myGoBack()">
+                    <i class="icon fa fa-chevron-left"></i>
+                </ion-nav-back-button>
+                <ion-nav-buttons  side="right"><!-- this is the three dot menu button 0-->
+                    <button class="no-text UWSP-Purple" ng-click="showMenu()" style="border:none;width:35px;">
+                        <i class="icon fa ion-android-more-vertical" style="font-size: 24px"></i>
+                    </button>
+                </ion-nav-buttons>
         </ion-nav-bar>
+        <ion-modal-view id="dotMenu" class="hide">
+
+            <ion-header-bar class="UWSP-Purple bar bar-header disable-user-behavior animated slideInDown visible">
+                <button class="no-text UWSP-Purple" ng-click="hideMenu()" style="border:none;width:50px;z-index:1;">
+                    <i class="icon fa ion-close-round" style="font-size: 24px"></i>
+                </button>
+                <div class="title title-center header-item">Menu</div>
+            </ion-header-bar>
+
+            <ion-content>
+                <!--Heres where the menu items go-->
+                <ion-item onclick="alert('clicked on Report a network Problem');">Report a network problem (placeholder)</ion-item>
+                <ion-item onclick="alert('clicked on about');">About</ion-item>
+            </ion-content>
+        </ion-modal-view>
+
+
+
         <ion-nav-view>
             <!--Here's where all the content gets injected-->
         </ion-nav-view>

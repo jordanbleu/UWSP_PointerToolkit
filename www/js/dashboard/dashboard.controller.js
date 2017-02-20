@@ -25,7 +25,7 @@
         .addClass('animated fadeInDown');
         angular.element(document.getElementsByClassName('title')).removeClass('mainTitle');
         $state.go(destination);
-      }, 600);
+      }, 200); // This is now faster
     }
 
     Waves.attach('.ripple', ['waves-button', 'waves-light']);
