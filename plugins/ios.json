@@ -1,0 +1,35 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        }
+    }
+}
