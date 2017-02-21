@@ -1,0 +1,16 @@
+﻿<ion-view class="animated fadeInRight" title="Campus Maps" >
+  <div data-tap-disabled="true" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;"  >
+    <leaflet id="map" defaults="defaults" markers="markers" paths="paths" center="center"
+             maxZoom="maxZoom" minZoom="minZoom" maxbounds="maxbounds" edgeBufferTiles="edgeBufferTiles">
+    </leaflet>   
+  </div>
+</ion-view>
+
+<!-- needs to be ouside of ion-view to work on ios -->
+<div class="fab" style="position: absolute; z-index: 20; right: 0;" ng-click="toggleCampusFAB('campusFAB')">
+    <div id="campusFAB" class="fixed-action-btn" style="bottom:35px; right: 25px;">
+        <a class="UWSP-Gold btn-floating btn-large ">
+            <i id="busFAB-i" class="ion-android-more-vertical"></i>
+        </a>
+    </div>
+</div>

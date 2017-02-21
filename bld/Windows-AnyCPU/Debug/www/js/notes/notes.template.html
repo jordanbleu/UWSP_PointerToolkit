@@ -1,0 +1,66 @@
+﻿<style>
+	.editNotes{
+		background-color: #FFFFFF;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		display: none;
+	}
+	
+	#newNote{
+		min-height: 100px;
+	}
+	
+	textarea{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+<ion-view cache-view="true" title="My Notes">
+<div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInDown" style="padding: 0;" >
+  
+	<!--View when editing/creating notes-->
+	<div id="editNotes" style="height: 90%;">
+		<div class="row">
+			<div class="col col-67">
+				<div class="list">
+					<label class="item item-input" id="title" for="newTitle">
+						<input type="text" placeholder="Title" id="newTitle">
+					</label>
+				</div>
+			</div>
+		  
+			<div class="col">				
+				<div style="float: right;">
+				<i id="btnSave" class="icon ion-checkmark" style="font-size: 260%; color: #ebebeb; margin-right: 10px;" onclick="endNotes(true)"></i>
+				<i id="btnDelete" class="icon ion-trash-b" style="font-size: 290%; color: #ebebeb; margin-right: 10px;" onclick="deleteNote()"></i>
+				<i id="btnCancel" class="icon ion-android-close" style="font-size: 300%; color: #ebebeb;" onclick="endNotes(false)"></i>
+				</div>
+			</div>
+	   </div>
+		   
+		<div class="row" style="height:99%;">
+			<div class="col" style="height:99%;">
+			    <label class="item item-input" id="note" style="height:99%;">
+					<textarea placeholder="Notes" id="newNote"></textarea>
+			    </label>
+			</div>
+		</div>
+	</div>
+
+	<!--View when notes are all listed/viewable-->
+	<div id="noteList">
+	</div>	
+</div>
+</ion-view>
+
+<!-- needs to be ouside of ion-view to work on ios -->
+<div class="fab" style="position: absolute; z-index: 20; right: 0;" ng-click="toggleFAB('notesFab')">
+    <div id="notesFab" class="fixed-action-btn" style="bottom:35px; right: 25px;" onclick="startNotes(this);">
+        <a class="UWSP-Gold btn-floating btn-large">
+            <i id="notesFab-i" class="icon ion-edit"></i>
+        </a>
+    </div>
+</div>
