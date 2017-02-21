@@ -1,0 +1,7 @@
+﻿{
+    "unit": {
+        "configFile": "test/karma-unit.conf.js",
+        "autoWatch": false,
+        "singleRun": true
+    }
+}
