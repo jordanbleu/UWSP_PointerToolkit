@@ -24,7 +24,30 @@ var foodCourtDaySayings =
 						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
 						"Sorry, we are closed today"];
 
-var foodCourtWeekTimes="Monday to Friday<br />8:00AM to 10:00AM<br/>11:00AM to 2:00PM";						
+var foodCourtWeekTimes = "Monday to Friday<br />8:00AM to 10:00AM<br/>11:00AM to 2:00PM";
+
+/****Basement Brewhaus****/
+var brewhausDaysTimes = [
+                            [1, 12, 22],
+                            [2, 8, 23],
+                            [3, 8, 23],
+                            [4, 8, 23],
+                            [5, 8, 23],
+                            [6, 8, 22],
+                            [7, 12, 22],
+                        ];
+
+var brewhausDaySayings = 
+                        ["12:00PM to 10:00PM",
+                         "8:00AM to 11:00PM",
+                         "8:00AM to 11:00PM",
+                         "8:00AM to 11:00PM",
+                         "8:00AM to 11:00PM",
+                         "8:00AM to 10:00PM",
+                         "12:00PM to 10:00PM",
+                        ]
+
+var brewhausWeekTimes = "Monday to Thursday<br />8:00AMAM to 11:00PM<br /><br />Friday<br />8:00AM to 11:00PM<br /><br />Saturday and Sunday<br />12:00PM to 10:00PM";
 
 /****The Red Vest****/				
 var redVestDaysTimes = [
@@ -168,9 +191,10 @@ var diningLocations = [
 				["foodForThought", foodForThoughtDaysTimes, foodForThoughtDaySayings, foodForThoughtWeekTimes],
 				["upperDebot", upperDebotDaysTimes, upperDebotDaySayings, upperDebotWeekTimes],
 				["lowerDebot", lowerDebotDaysTimes, lowerDebotDaySayings, lowerDebotWeekTimes],
-                ["cpsCafe", cpsCafeDaysTimes, cpsCafeDaySayings, cpsCafeWeekTimes]];
+                ["cpsCafe", cpsCafeDaysTimes, cpsCafeDaySayings, cpsCafeWeekTimes],
+                ["brewhaus", brewhausDaysTimes, brewhausDaySayings, brewhausWeekTimes]
+                        ];
 
-				
 //OnLoad
 (function () {
   'use strict';
@@ -290,35 +314,39 @@ function changeViewDining(id)
 		switch(id) {
 			case "foodCourt":
 				document.getElementById(id + "Open").style.top= "-37%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -37%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -37%; font-size: 20px;\"></i>";
 				break;
 			case "redVest":
 				document.getElementById(id + "Open").style.top= "-34%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -35%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -35%; font-size: 20px;\"></i>";
 				break;
 			case "homegrown":
 				document.getElementById(id + "Open").style.top= "-38%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
 			case "foodForThought":
 				document.getElementById(id + "Open").style.top= "-38%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
 			case "upperDebot":
 				document.getElementById(id + "Open").style.top= "-44%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -44%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -44%; font-size: 20px;\"></i>";
 				break;
 			case "lowerDebot":
 				document.getElementById(id + "Open").style.top= "-39%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
 		    case "cpsCafe":
 		        document.getElementById(id + "Open").style.top= "-32%";
 		        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
 		        break;
-            default:
-				document.getElementById(id + "Open").style.top= "-32%";
-				document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+		    case "brewhaus":
+		        document.getElementById(id + "Open").style.top = "-32%";
+		        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
+		        break;
+		    default:
+				document.getElementById(id + "Open").style.top = "-32%";
+				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
 				break;
 		} 
 	}
