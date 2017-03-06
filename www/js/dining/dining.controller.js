@@ -289,15 +289,15 @@ function openOrClosed(id, array, sayings, weekTimes)
 	//When open show the gold star
 	if(isOpen)
 	{
-		document.getElementById(id + "Open").innerHTML= "<object data=\"assets/img/silverwareGold.svg\" type=\"image/svg+xml\" class=\"open\"></object>";
+	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
 	}
 	else
 	{
-		document.getElementById(id + "Open").innerHTML= "<object data=\"assets/img/silverwareGrey.svg\" type=\"image/svg+xml\" class=\"closed\"></object>";
+		document.getElementById(id + "Open").innerHTML= "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
 	}
 	
 	//Displays the day and the time a location is open
-	document.getElementById(id + "Today").innerHTML="Today: " +today + "<br />" + sayings[dayOfWeek];
+	document.getElementById(id + "Today").innerHTML="Today: " + today + "<br />" + sayings[dayOfWeek];
 	
 	//Displays the times for the week a location is open
 	document.getElementById(id + "Week").innerHTML= weekTimes;
