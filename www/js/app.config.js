@@ -43,7 +43,13 @@
         templateUrl: 'js/sports/sports.template.html',
         controller: 'SportsController'
     });
-	
+
+	$stateProvider.state('about', {
+	    url: '/about',
+	    templateUrl: 'js/about/about.template.html',
+	    controller: 'AboutController'
+	});
+
     $urlRouterProvider.otherwise('/dashboard');
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $ionicConfigProvider.navBar.alignTitle('center');

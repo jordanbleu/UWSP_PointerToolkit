@@ -65,6 +65,7 @@
     <script src="js/notes/notes.controller.js"></script>
     <script src="js/busroutes/busroutes.controller.js"></script>
     <script src="js/sports/sports.controller.js"></script>
+    <script src="js/about/about.controller.js"></script>
 </head>
 <body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important">
     <ion-nav-bar class="UWSP-Purple">
@@ -90,7 +91,7 @@
         <ion-content>
             <!--Heres where the menu items go-->
             <ion-item onclick="alert('clicked on Report a network Problem');">Report a network problem (placeholder)</ion-item>
-            <ion-item onclick="alert('clicked on about');">About</ion-item>
+            <ion-item ng-click="goto('about')">About</ion-item>
         </ion-content>
     </ion-modal-view>
 

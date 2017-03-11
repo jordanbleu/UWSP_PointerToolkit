@@ -11,6 +11,7 @@
              'notes',
              'quickLinks',
 			 'sports',
+             'about',
              '720kb.tooltips'
            ]);
 
@@ -35,5 +36,8 @@
 	
   angular
     .module('sports', ['leaflet-directive', 'swipe']);
+
+  angular
+    .module('about', ['leaflet-directive', 'swipe']);
 	
 })();
