@@ -5,7 +5,7 @@
         $scope.$on('$ionicView.beforeEnter', function () {
             angular.element(document.getElementsByClassName('title')).addClass('header-item');
             if (firstRun) {
-                angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
+                //angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
                 firstRun = false;
             }
         });
@@ -13,16 +13,13 @@
             angular.element(document.getElementById('dashboard-animation'))
             .removeClass('animated fadeInLeft')
             .addClass('animated slideOutLeft');
-            angular.element(document.getElementsByTagName('ion-header-bar'))
-            .removeClass('animated slideInDown')
-            .addClass('animated fadeOutUp');
+            //angular.element(document.getElementsByTagName('ion-header-bar'))
+            //.removeClass('animated slideInDown')
+            //.addClass('animated fadeOutUp');
             $timeout(function () {
                 angular.element(document.getElementById('dashboard-animation'))
                 .removeClass('animated slideOutLeft')
                 .addClass('animated fadeInLeft');
-                angular.element(document.getElementsByTagName('ion-header-bar'))
-                .removeClass('animated fadeOutUp')
-                .addClass('animated fadeInDown');
                 angular.element(document.getElementsByClassName('title')).removeClass('mainTitle');
                 $state.go(destination);
             }, 200); // This is now faster

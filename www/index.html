@@ -20,6 +20,8 @@
 
     <link href="lib/awesome-markers/leaflet.awesome-markers.css" rel="stylesheet">
 
+    <link href="js/Menu/menuStyle.css" rel="stylesheet" type="text/css">
+
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="lib/angular-touch/angular-touch.min.js"></script>
@@ -65,34 +67,94 @@
     <script src="js/notes/notes.controller.js"></script>
     <script src="js/busroutes/busroutes.controller.js"></script>
     <script src="js/sports/sports.controller.js"></script>
+    <!--<script src="js/Menu/Menu.controller.js"></script>-->
 </head>
 <body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important">
     <ion-nav-bar class="UWSP-Purple">
         <ion-nav-back-button animation="no-animation" class="no-text UWSP-Purple" style="border: 0;" ng-click="myGoBack()">
             <i class="icon fa fa-chevron-left"></i>
         </ion-nav-back-button>
+        
         <ion-nav-buttons side="right">
-            <!-- this is the three dot menu button 0-->
-            <!--<button class="no-text UWSP-Purple" ng-click="showMenu()" style="border:none;width:35px;">
-                <i class="icon fa ion-android-more-vertical" style="font-size: 24px"></i>
-            </button>-->
+            <button menu-toggle="right" class="button button-icon icon ion-navicon no-text UWSP-Purple" ng-click="showMenu()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-modal-view id="dotMenu" class="hide">
-
-        <ion-header-bar class="UWSP-Purple bar bar-header disable-user-behavior animated slideInDown visible">
-            <button class="no-text UWSP-Purple" ng-click="hideMenu()" style="border:none;width:50px;z-index:1;">
+    
+    <ion-modal-view id="dotMenu" class="hide" style="width:80%;left:20%;z-index:1000 !important">
+        <ion-header-bar class="UWSP-Purple bar bar-header active disable-user-behavior animated visible">
+            <button class="no-text UWSP-Purple" ng-click="hideMenu()" style="border:none;width:50px;z-index:100;">
                 <i class="icon fa ion-close-round" style="font-size: 24px"></i>
             </button>
             <div class="title title-center header-item">Menu</div>
         </ion-header-bar>
 
-        <ion-content>
-            <!--Heres where the menu items go-->
-            <ion-item onclick="alert('clicked on Report a network Problem');">Report a network problem (placeholder)</ion-item>
-            <ion-item onclick="alert('clicked on about');">About</ion-item>
+        <ion-content id="menuContent">
+
+
+            <ion-item style="padding:0px;">
+                <div id="UWSPMenuHeader">
+                    <img id="SPLogo" src="assets/img/MenuHeader/SPLogo.png">
+                    <div id="SPTitle">
+                        <h3 id="SPMainTitle">UW - Stevens Point</h3>
+                        <h3 id="SPSubTitle">Pointer Toolkit</h3>
+                    </div>
+                </div>
+            </ion-item>
+
+            <!--<a nav-transition="none" ng-click="goTo('campusmap');" class="">-->
+            <a nav-transition="none" ui-sref="campusmap" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/map.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Campus Maps</h5>
+                </ion-item>
+            </a>
+
+            <!--<a nav-transition="none" href="#" ng-click="goTo('busroutes');" class="">-->
+            <a nav-transition="none" ui-sref="busroutes" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/bus.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Bus Routes</h5>
+                </ion-item>
+            </a>
+
+            <!--<a nav-transition="none" href="#" ng-click="goTo('notes');" class="">-->
+            <a nav-transition="none" ui-sref="notes" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/notes.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Notes</h5>
+                </ion-item>
+            </a>
+
+            <!--<a nav-transition="none" href="#" ng-click="goTo('quickLinks');" class="">-->
+            <a nav-transition="none" ui-sref="quickLinks" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/quickLinks.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Links</h5>
+                </ion-item>
+            </a>
+
+            <!--<a nav-transition="none" href="#" ng-click="goTo('sports');" class="">-->
+            <a nav-transition="none" ui-sref="sports" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/sports.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Athletic Events</h5>
+                </ion-item>
+            </a>
+
+            <!--<a nav-transition="none" href="#" ng-click="goTo('dining');" class="">-->
+            <a nav-transition="none" ui-sref="dining" ng-click="hideMenu()" class="">
+                <img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Dining Hours</h5>
+                </ion-item>
+            </a>
+
+            <ion-item class="menuItem" onclick="alert('not yet implemented')">Campus Network</ion-item>
+            <ion-item class="menuItem" onclick="alert('not yet implemented')">About</ion-item>
         </ion-content>
     </ion-modal-view>
+
+
 
 
 
