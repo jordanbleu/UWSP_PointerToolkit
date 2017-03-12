@@ -108,9 +108,8 @@
         // this here code shows the menu
         $scope.showMenu = function () {
             $("#dotMenu")
-                .show()
                 .removeClass('animated slideOutRight')
-                .addClass('animated slideInRight');
+                .addClass('animated slideInRight').fadeIn(500);
 
 
         }
@@ -118,7 +117,8 @@
         // this here code hides the menu
         $scope.hideMenu = function () {
             $("#dotMenu").removeClass('animated slideInRight')
-                .addClass('animated slideOutRight');
+                .addClass('animated slideOutRight').fadeOut(500);
+
         }
 
     });
