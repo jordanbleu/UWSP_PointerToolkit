@@ -5,7 +5,7 @@
         $scope.$on('$ionicView.beforeEnter', function () {
             angular.element(document.getElementsByClassName('title')).addClass('header-item');
             if (firstRun) {
-                angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
+                //angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
                 firstRun = false;
             }
         });

@@ -3,7 +3,15 @@
     'use strict';
 
     function AboutController($scope, $ionicHistory, $timeout, $state) {
+        $timeout(function () {
+            $("#aboutcontent").children().each(function (index) { $(this).hide(); });
+            $("#aboutcontent").children().each(function (index) {
+                $(this).delay(100 * index).fadeIn(600);
+            });
+        });
     }
+
+
 
     angular
       .module('about', [])
@@ -11,15 +19,15 @@
 })();
 
 //Sets up the content for each of the food locations
-function updateOpenOrClosed() {
-    //Determines the Current Day
-    determineDay();
+//function updateOpenOrClosed() {
+//    //Determines the Current Day
+//    determineDay();
 
-    //Sets the Locations to open/closed as well as their inner information
-    for (var i = 0; i < diningLocations.length; i++) {
-        openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
-    }
-}
+//    //Sets the Locations to open/closed as well as their inner information
+//    for (var i = 0; i < diningLocations.length; i++) {
+//        openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
+//    }
+//}
 
 //Finds the day based off of the date grabbed
 function determineDay() {
