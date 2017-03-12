@@ -1,16 +1,23 @@
 <ion-view cache-view="true" title="Dining Hours">
    <style>
       #foodCourt, #redVest, #homegrown, #foodForThought, #upperDebot, #lowerDebot, #lowerDebotUp, #cpsCafe, #brewhaus{
-      display:none;
+        display:none;
       }
 	  
       #foodCourtBtn,#redVestBtn, #homegrownBtn, #foodForThoughtBtn, #upperDebotBtn, #lowerDebotBtn, #cpsCafeBtn, #brewhausBtn{
-      color: #ebebeb;
+        color: #ebebeb;
       }
 	  
       #foodCourtOpen, #redVestOpen, #homegrownOpen, #foodForThoughtOpen, #upperDebotOpen, #lowerDebotOpen, #cpsCafeOpen, #brewhausOpen{
-      top: -4%;
+        top: -4%;
       }
+
+       #foodCourtTitle, #redVestTitle, #homegrownTitle, #foodForThoughtTitle, #upperDebotTitle, #lowerDebotTitle, #cpsCafeTitle, #brewhausTitle {
+        display: inline-block;
+        margin-right: 10px;
+       }
+
+      
    </style>
    <div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInDown" style="padding: 0;" >
       <div class="list">
@@ -18,7 +25,7 @@
          <div onmousedown="changeViewDining('foodCourt')" style="background-color:green">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="foodCourtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
-               DUC Food Court
+                <div id="foodCourtTitle">DUC Food Court</div><span id="foodCourtOpenText"></span>
                <div id="foodCourt">
                   <br /><span class="wrap" id="foodCourtToday">input</span>
                   <br/><br/><span class="wrap" id="foodCourtWeek">input</span>
@@ -33,7 +40,7 @@
         <div onmousedown="changeViewDining('brewhaus')">
             <a class="item item-icon-left item-icon-right" href="#">
                 <i class="icon" id="brewhausOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
-                Basement Brewhaus
+                <div id="brewhausTitle">Basement Brewhaus</div><span id="brewhausOpenText"></span>
                 <div id="brewhaus">
                     <br /><span class="wrap" id="brewhausToday">input</span>
                     <br /><br /><span class="wrap" id="brewhausWeek">input</span>
@@ -47,7 +54,7 @@
          <div onmousedown="changeViewDining('redVest')">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="redVestOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-               The Red Vest
+                <div id="redVestTitle">The Red Vest</div><span id="redVestOpenText"></span>
                <div id="redVest">
                   <br /><span class="wrap" id="redVestToday">input</span>
                   <br/><br/><span class="wrap" id="redVestWeek">input</span>
@@ -61,7 +68,7 @@
          <div onmousedown="changeViewDining('homegrown')">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="homegrownOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-               Homegrown
+                <div homegrownTitle">Homegrown</div><span id="homegrownOpenText"></span>
                <div id="homegrown">
                   <br /><span class="wrap" id="homegrownToday">input</span>
                   <br/><br/><span class="wrap" id="homegrownWeek">input</span>
@@ -75,7 +82,7 @@
 		 <div onmousedown="changeViewDining('foodForThought')">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="foodForThoughtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-               Food for Thought
+                <div id="foodForThoughtTitle">Food for Thought</div><span id="foodForThoughtOpenText"></span>
                <div id="foodForThought">
                   <br /><span class="wrap" id="foodForThoughtToday">input</span>
                   <br/><br/><span class="wrap" id="foodForThoughtWeek">input</span>
@@ -89,7 +96,7 @@
 		 <div onmousedown="changeViewDining('upperDebot')">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="upperDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-               Upper Debot
+                <div id="upperDebotTitle">Upper Debot</div><span id="upperDebotOpenText"></span>
                <div id="upperDebot">
                   <br /><span class="wrap" id="upperDebotToday">input</span>
                   <br/><br/><span class="wrap" id="upperDebotWeek">input</span>
@@ -103,7 +110,7 @@
          <div onmousedown="changeViewDining('lowerDebot')">
            <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="lowerDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed" style="color: red;"></object></i>
-               Lower Debot
+               <div id="lowerDebotTitle">Lower Debot</div><span id="lowerDebotOpenText"></span>
                <div id="lowerDebot">
                   <br /><span class="wrap" id="lowerDebotToday">input</span>
                   <br/><br/><span class="wrap" id="lowerDebotWeek">input</span>
@@ -117,7 +124,7 @@
          <div onmousedown="changeViewDining('cpsCafe')">
            <a class="item item-icon-left item-icon-right" href="#">
              <i class="icon" id="cpsCafeOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i> 
-             CPS Cafe
+               <div id="cpsCafeTitle">CPS Cafe</div><span id="cpsCafeOpenText"></span>
              <div id="cpsCafe">
                <br /><span class="wrap" id="cpsCafeToday">input</span>
                <br /><br /><span class="wrap" id="cpsCafeWeek">input</span>

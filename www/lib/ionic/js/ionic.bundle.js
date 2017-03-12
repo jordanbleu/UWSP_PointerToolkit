@@ -53012,7 +53012,7 @@ function($scope, $attrs, $ionicSideMenuDelegate, $ionicPlatform, $ionicBody, $io
   var self = this;
   var rightShowing, leftShowing, isDragging;
   var startX, lastX, offsetX, isAsideExposed;
-  var enableMenuWithBackViews = true;
+  //var enableMenuWithBackViews = true;
 
   self.$scope = $scope;
 

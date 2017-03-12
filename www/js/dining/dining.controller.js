@@ -216,13 +216,14 @@ var diningLocations = [
 //Sets up the content for each of the food locations
 function updateOpenOrClosed()
 {
+
 	//Determines the Current Day
 	determineDay();
 	
 	//Sets the Locations to open/closed as well as their inner information
 	for(var i=0; i<diningLocations.length; i++)
 	{
-		openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
+	    openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
 	}
 }
 
@@ -273,6 +274,7 @@ function determineDay()
 //Looks through each location array to determine whether it is open or closed
 function openOrClosed(id, array, sayings, weekTimes)
 {
+  
 	var isOpen=false;
 
 	for(var i=0; i<array.length; i++)
@@ -281,19 +283,23 @@ function openOrClosed(id, array, sayings, weekTimes)
 		{
 			if(currentTimeTotalMinutes>=(array[i][1]*60)&& currentTimeTotalMinutes<(array[i][2]*60))
 			{
+
 				isOpen=true;
 			}
 		}
 	}
 	
-	//When open show the gold star
+    //When open show the gold star
+
 	if(isOpen)
 	{
 	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
+	    document.getElementById(id + "OpenText").innerHTML = "";
 	}
 	else
 	{
-		document.getElementById(id + "Open").innerHTML= "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
+	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
+	    document.getElementById(id + "OpenText").innerHTML = "[Closed]";
 	}
 	
 	//Displays the day and the time a location is open
