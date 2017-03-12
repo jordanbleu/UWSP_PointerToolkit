@@ -68,3 +68,13 @@
     display: inline-block !important;
     vertical-align: middle;
 }
+
+#backgroundImage {
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url("../../assets/img/bg.png") !important;
+    opacity: 100 !important;
+    background-size: contain;
+
+
+}
