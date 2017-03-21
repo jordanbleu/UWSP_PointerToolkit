@@ -1,164 +1,163 @@
 <ion-view cache-view="true" title="Dining Hours">
-   <style>
-      #foodCourt, #redVest, #homegrown, #foodForThought, #upperDebot, #lowerDebot, #lowerDebotUp, #cpsCafe, #brewhaus{
-        display:none;
-      }
-	  
-      #foodCourtBtn,#redVestBtn, #homegrownBtn, #foodForThoughtBtn, #upperDebotBtn, #lowerDebotBtn, #cpsCafeBtn, #brewhausBtn{
-        color: #ebebeb;
-      }
-	  
-      #foodCourtOpen, #redVestOpen, #homegrownOpen, #foodForThoughtOpen, #upperDebotOpen, #lowerDebotOpen, #cpsCafeOpen, #brewhausOpen{
-        top: -4%;
-      }
+    <style>
+        #foodCourt, #redVest, #homegrown, #foodForThought, #upperDebot, #lowerDebot, #lowerDebotUp, #cpsCafe, #brewhaus {
+            display: none;
+        }
 
-       #foodCourtTitle, #redVestTitle, #homegrownTitle, #foodForThoughtTitle, #upperDebotTitle, #lowerDebotTitle, #cpsCafeTitle, #brewhausTitle {
-        display: inline-block;
-        margin-right: 10px;
-       }
+        #foodCourtBtn, #redVestBtn, #homegrownBtn, #foodForThoughtBtn, #upperDebotBtn, #lowerDebotBtn, #cpsCafeBtn, #brewhausBtn {
+            color: #ebebeb;
+        }
 
-       .group {
+        #foodCourtOpen, #redVestOpen, #homegrownOpen, #foodForThoughtOpen, #upperDebotOpen, #lowerDebotOpen, #cpsCafeOpen, #brewhausOpen {
+            top: -4%;
+        }
+
+        #foodCourtTitle, #redVestTitle, #homegrownTitle, #foodForThoughtTitle, #upperDebotTitle, #lowerDebotTitle, #cpsCafeTitle, #brewhausTitle {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .group {
             font-size: 14px;
             padding-top: 0px;
             padding-bottom: 0px;
             background-color: grey;
-            color: white;     
-            border: none; 
-       }
+            color: white;
+            border: none;
+        }
 
-       .isOpen {
-        font-size: 900px;
-       }
-
-      
-   </style>
-   
-   <div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;" >
-       <div class="list">
-           <div id="openGroup">
-               <h4 class="group item">Open</h4>
-           </div>
-
-           <div id="closedGroup">
-               <h4 class="group item">Closed</h4>
+        .isOpen {
+            font-size: 900px;
+        }
+    </style>
 
 
-           </div>
-
-           <!--Food Court-->
-    <div onmousedown="changeViewDining('foodCourt')" style="background-color:green" id="foodCourtGrp">
-        <a class="item item-icon-left item-icon-right" href="#">
-            <i class="icon" id="foodCourtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
-            <div id="foodCourtTitle">DUC Food Court</div><span id="foodCourtOpenText"></span>
-            <div id="foodCourt">
-                <br /><span class="wrap" id="foodCourtToday">input</span>
-                <br /><br /><span class="wrap" id="foodCourtWeek">input</span>
+    
+    <div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;">
+        <div class="list">
+            <div id="openGroup">
+                <h4 class="group item">Open</h4>
             </div>
-            <div id="foodCourtBtn">
-                <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-            </div>
-        </a>
-    </div>
 
-    <!--Basement Brewhaus-->
-        <div onmousedown="changeViewDining('brewhaus')" id="brewhausGrp">
-            <a class="item item-icon-left item-icon-right" href="#">
-                <i class="icon" id="brewhausOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
-                <div id="brewhausTitle">Basement Brewhaus</div><span id="brewhausOpenText"></span>
-                <div id="brewhaus">
-                    <br /><span class="wrap" id="brewhausToday">input</span>
-                    <br /><br /><span class="wrap" id="brewhausWeek">input</span>
-                </div>
-                <div id="brewhausBtn">
-                    <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-                </div>
-            </a>
+            <div id="closedGroup">
+                <h4 class="group item">Closed</h4>
+
+
+            </div>
+
+            <!--Food Court-->
+            <div onmousedown="changeViewDining('foodCourt')" style="background-color:green" id="foodCourtGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="foodCourtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="foodCourtTitle">DUC Food Court</div><span id="foodCourtOpenText"></span>
+                    <div id="foodCourt">
+                        <br /><span class="wrap" id="foodCourtToday">input</span>
+                        <br /><br /><span class="wrap" id="foodCourtWeek">input</span>
+                    </div>
+                    <div id="foodCourtBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!--Basement Brewhaus-->
+            <div onmousedown="changeViewDining('brewhaus')" id="brewhausGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="brewhausOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="brewhausTitle">Basement Brewhaus</div><span id="brewhausOpenText"></span>
+                    <div id="brewhaus">
+                        <br /><span class="wrap" id="brewhausToday">input</span>
+                        <br /><br /><span class="wrap" id="brewhausWeek">input</span>
+                    </div>
+                    <div id="brewhausBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--The Red Vest-->
+            <div onmousedown="changeViewDining('redVest')" id="redVestGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="redVestOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="redVestTitle">The Red Vest</div><span id="redVestOpenText"></span>
+                    <div id="redVest">
+                        <br /><span class="wrap" id="redVestToday">input</span>
+                        <br /><br /><span class="wrap" id="redVestWeek">input</span>
+                    </div>
+                    <div id="redVestBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--Homegrown-->
+            <div onmousedown="changeViewDining('homegrown')" id="homegrownGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="homegrownOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div homegrownTitle">Homegrown</div><span id="homegrownOpenText"></span>
+                    <div id="homegrown">
+                        <br /><span class="wrap" id="homegrownToday">input</span>
+                        <br /><br /><span class="wrap" id="homegrownWeek">input</span>
+                    </div>
+                    <div id="homegrownBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--Food for Thought-->
+            <div onmousedown="changeViewDining('foodForThought')" id="foodForThoughtGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="foodForThoughtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="foodForThoughtTitle">Food for Thought</div><span id="foodForThoughtOpenText"></span>
+                    <div id="foodForThought">
+                        <br /><span class="wrap" id="foodForThoughtToday">input</span>
+                        <br /><br /><span class="wrap" id="foodForThoughtWeek">input</span>
+                    </div>
+                    <div id="foodForThoughtBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--Upper Deobot-->
+            <div onmousedown="changeViewDining('upperDebot')" id="upperDebotGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="upperDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="upperDebotTitle">Upper Debot</div><span id="upperDebotOpenText"></span>
+                    <div id="upperDebot">
+                        <br /><span class="wrap" id="upperDebotToday">input</span>
+                        <br /><br /><span class="wrap" id="upperDebotWeek">input</span>
+                    </div>
+                    <div id="upperDebotBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--Lower Deobot-->
+            <div onmousedown="changeViewDining('lowerDebot')" id="lowerDebotGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="lowerDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed" style="color: red;"></object></i>
+                    <div id="lowerDebotTitle">Lower Debot</div><span id="lowerDebotOpenText"></span>
+                    <div id="lowerDebot">
+                        <br /><span class="wrap" id="lowerDebotToday">input</span>
+                        <br /><br /><span class="wrap" id="lowerDebotWeek">input</span>
+                    </div>
+                    <div id="lowerDebotBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
+            <!--CPS Cafe-->
+            <div onmousedown="changeViewDining('cpsCafe')" id="cpsCafeGrp">
+                <a class="item item-icon-left item-icon-right" href="#">
+                    <i class="icon" id="cpsCafeOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+                    <div id="cpsCafeTitle">CPS Cafe</div><span id="cpsCafeOpenText"></span>
+                    <div id="cpsCafe">
+                        <br /><span class="wrap" id="cpsCafeToday">input</span>
+                        <br /><br /><span class="wrap" id="cpsCafeWeek">input</span>
+                    </div>
+                    <div id="cpsCafeBtn">
+                        <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+                    </div>
+                </a>
+            </div>
         </div>
-	<!--The Red Vest-->
-         <div onmousedown="changeViewDining('redVest')" id="redVestGrp">
-            <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="redVestOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-                <div id="redVestTitle">The Red Vest</div><span id="redVestOpenText"></span>
-               <div id="redVest">
-                  <br /><span class="wrap" id="redVestToday">input</span>
-                  <br/><br/><span class="wrap" id="redVestWeek">input</span>
-               </div>
-               <div id="redVestBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-            </a>
-         </div>
-	<!--Homegrown-->
-         <div onmousedown="changeViewDining('homegrown')" id="homegrownGrp">
-            <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="homegrownOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-                <div homegrownTitle">Homegrown</div><span id="homegrownOpenText"></span>
-               <div id="homegrown">
-                  <br /><span class="wrap" id="homegrownToday">input</span>
-                  <br/><br/><span class="wrap" id="homegrownWeek">input</span>
-               </div>
-               <div id="homegrownBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-            </a>
-         </div>
-    <!--Food for Thought-->
-		 <div onmousedown="changeViewDining('foodForThought')" id="foodForThoughtGrp">
-            <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="foodForThoughtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-                <div id="foodForThoughtTitle">Food for Thought</div><span id="foodForThoughtOpenText"></span>
-               <div id="foodForThought">
-                  <br /><span class="wrap" id="foodForThoughtToday">input</span>
-                  <br/><br/><span class="wrap" id="foodForThoughtWeek">input</span>
-               </div>
-               <div id="foodForThoughtBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-            </a>
-         </div>
-    <!--Upper Deobot-->
-		 <div onmousedown="changeViewDining('upperDebot')" id="upperDebotGrp">
-            <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="upperDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
-                <div id="upperDebotTitle">Upper Debot</div><span id="upperDebotOpenText"></span>
-               <div id="upperDebot">
-                  <br /><span class="wrap" id="upperDebotToday">input</span>
-                  <br/><br/><span class="wrap" id="upperDebotWeek">input</span>
-               </div>
-               <div id="upperDebotBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-            </a>
-         </div>
-	<!--Lower Deobot-->
-         <div onmousedown="changeViewDining('lowerDebot')" id="lowerDebotGrp">
-           <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="lowerDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed" style="color: red;"></object></i>
-               <div id="lowerDebotTitle">Lower Debot</div><span id="lowerDebotOpenText"></span>
-               <div id="lowerDebot">
-                  <br /><span class="wrap" id="lowerDebotToday">input</span>
-                  <br/><br/><span class="wrap" id="lowerDebotWeek">input</span>
-               </div>
-               <div id="lowerDebotBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-           </a>
-         </div>
-    <!--CPS Cafe-->
-         <div onmousedown="changeViewDining('cpsCafe')" id="cpsCafeGrp">
-           <a class="item item-icon-left item-icon-right" href="#">
-             <i class="icon" id="cpsCafeOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i> 
-               <div id="cpsCafeTitle">CPS Cafe</div><span id="cpsCafeOpenText"></span>
-             <div id="cpsCafe">
-               <br /><span class="wrap" id="cpsCafeToday">input</span>
-               <br /><br /><span class="wrap" id="cpsCafeWeek">input</span>
-             </div>
-             <div id="cpsCafeBtn">
-                 <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-             </div>           
-           </a>
-         </div>
     </div>
-   </div>
 </ion-view>
-

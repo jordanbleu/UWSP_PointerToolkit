@@ -15,15 +15,15 @@ var foodCourtDaysTimes = [
 							[4, 11, 14],
 							[5, 8, 10],
 							[5, 11, 14]
-						];
-						
-var foodCourtDaySayings = 
-						["Sorry, we are closed today", 
-						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
-						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
-						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
-						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
-						"8:00AM to 10:00AM<br />11:00AM to 2:00PM", 
+];
+
+var foodCourtDaySayings =
+						["Sorry, we are closed today",
+						"8:00AM to 10:00AM<br />11:00AM to 2:00PM",
+						"8:00AM to 10:00AM<br />11:00AM to 2:00PM",
+						"8:00AM to 10:00AM<br />11:00AM to 2:00PM",
+						"8:00AM to 10:00AM<br />11:00AM to 2:00PM",
+						"8:00AM to 10:00AM<br />11:00AM to 2:00PM",
 						"Sorry, we are closed today"];
 
 var foodCourtWeekTimes = "Monday to Friday<br />8:00AM to 10:00AM<br/>11:00AM to 2:00PM";
@@ -37,9 +37,9 @@ var brewhausDaysTimes = [
                             [5, 8, 23],
                             [6, 8, 22],
                             [7, 12, 22],
-                        ];
+];
 
-var brewhausDaySayings = 
+var brewhausDaySayings =
                         ["12:00PM to 10:00PM",
                          "8:00AM to 11:00PM",
                          "8:00AM to 11:00PM",
@@ -51,64 +51,64 @@ var brewhausDaySayings =
 
 var brewhausWeekTimes = "Monday to Thursday<br />8:00AMAM to 11:00PM<br /><br />Friday<br />8:00AM to 11:00PM<br /><br />Saturday and Sunday<br />12:00PM to 10:00PM";
 
-/****The Red Vest****/				
+/****The Red Vest****/
 var redVestDaysTimes = [
 							[1, 15, 19],
 							[2, 15, 19],
 							[3, 15, 19],
 							[4, 15, 19],
-						];
-						
-var redVestDaySayings = 
-						["Sorry, we are closed today", 
-						"3:00PM to 7:00PM", 
-						"3:00PM to 7:00PM", 
-						"3:00PM to 7:00PM", 
-						"3:00PM to 7:00PM", 
-						"Sorry, we are closed today", 
-						"Sorry, we are closed today"];	
+];
 
-var redVestWeekTimes="Monday to Thursday<br />3:00PM to 7:00PM";
+var redVestDaySayings =
+						["Sorry, we are closed today",
+						"3:00PM to 7:00PM",
+						"3:00PM to 7:00PM",
+						"3:00PM to 7:00PM",
+						"3:00PM to 7:00PM",
+						"Sorry, we are closed today",
+						"Sorry, we are closed today"];
 
-/****Homegrown****/			
+var redVestWeekTimes = "Monday to Thursday<br />3:00PM to 7:00PM";
+
+/****Homegrown****/
 var homegrownDaysTimes = [
 							[1, 7.5, 17],
 							[2, 7.5, 17],
 							[3, 7.5, 17],
 							[4, 7.5, 17],
 							[5, 7.5, 14]
-						];
-						
-var homegrownDaySayings = 
-						["Sorry, we are closed today", 
-						"7:30AM to 5:00PM", 
-						"7:30AM to 5:00PM", 
-						"7:30AM to 5:00PM", 
-						"7:30AM to 5:00PM", 
-						"7:30AM to 2:00PM", 
-						"Sorry, we are closed today"];	
+];
 
-var homegrownWeekTimes="Monday to Thursday<br />7:30AM to 5:00PM<br /><br />Friday<br />7:30AM to 2:00PM";
+var homegrownDaySayings =
+						["Sorry, we are closed today",
+						"7:30AM to 5:00PM",
+						"7:30AM to 5:00PM",
+						"7:30AM to 5:00PM",
+						"7:30AM to 5:00PM",
+						"7:30AM to 2:00PM",
+						"Sorry, we are closed today"];
 
-/****Food for Thought****/				
+var homegrownWeekTimes = "Monday to Thursday<br />7:30AM to 5:00PM<br /><br />Friday<br />7:30AM to 2:00PM";
+
+/****Food for Thought****/
 var foodForThoughtDaysTimes = [
 							[1, 8, 16],
 							[2, 8, 16],
 							[3, 8, 16],
 							[4, 8, 16],
 							[5, 8, 14]
-						];
-						
-var foodForThoughtDaySayings = 
-						["Sorry, we are closed today", 
-						"8:00AM to 4:00PM", 
-						"8:00AM to 4:00PM", 
-						"8:00AM to 4:00PM", 
-						"8:00AM to 4:00PM", 
-						"8:00AM to 2:00PM", 
-						"Sorry, we are closed today"];	
-			
-var foodForThoughtWeekTimes="Monday to Thursday<br />8:00AM to 4:00PM<br /><br />Friday<br />8:00AM to 2:00PM";
+];
+
+var foodForThoughtDaySayings =
+						["Sorry, we are closed today",
+						"8:00AM to 4:00PM",
+						"8:00AM to 4:00PM",
+						"8:00AM to 4:00PM",
+						"8:00AM to 4:00PM",
+						"8:00AM to 2:00PM",
+						"Sorry, we are closed today"];
+
+var foodForThoughtWeekTimes = "Monday to Thursday<br />8:00AM to 4:00PM<br /><br />Friday<br />8:00AM to 2:00PM";
 
 /****Upper Debot****/
 var upperDebotDaysTimes = [
@@ -131,20 +131,20 @@ var upperDebotDaysTimes = [
 							[5, 16, 18.5],
 							[6, 8.5, 10],
 							[6, 10.5, 13]
-						];			
-			
-var upperDebotDaySayings = 
-						["8:30AM to 10:00AM and 10:30AM to 1:00PM", 
-						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",  
-						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM", 
-						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",  
-						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM", 
-						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 6:30PM", 
-						"8:30AM to 10:00AM and 10:30AM to 1:00PM"];	
+];
 
-var upperDebotWeekTimes="Monday to Thursday<br />7:30AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM<br /><br />Friday<br />7:30AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 6:30PM<br /><br />Saturday and Sunday<br />8:30AM to 10:00AM<br />10:30AM to 1:00PM";
+var upperDebotDaySayings =
+						["8:30AM to 10:00AM and 10:30AM to 1:00PM",
+						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",
+						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",
+						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",
+						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM",
+						"7:00AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 6:30PM",
+						"8:30AM to 10:00AM and 10:30AM to 1:00PM"];
 
-/****Lower Deobot****/						
+var upperDebotWeekTimes = "Monday to Thursday<br />7:30AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 7:30PM<br /><br />Friday<br />7:30AM to 10:00AM<br />10:30AM to 2:00PM<br />4:00PM to 6:30PM<br /><br />Saturday and Sunday<br />8:30AM to 10:00AM<br />10:30AM to 1:00PM";
+
+/****Lower Deobot****/
 var lowerDebotDaysTimes = [
 							[0, 11, 23],
 							[1, 7.5, 23],
@@ -153,17 +153,17 @@ var lowerDebotDaysTimes = [
 							[4, 7.5, 23],
 							[5, 7.5, 23],
 							[6, 11, 23],
-						];											
-						
-var lowerDebotDaySayings = 
-						["11:00AM to 11:00PM", 
-						"7:30AM to 11:00PM", 
-						"7:30AM to 11:00PM", 
-						"7:30AM to 11:00PM", 
-						"7:30AM to 11:00PM", 
-						"11:00AM to 11:00PM", 
-						"11:00AM to 11:00PM"];	
-						
+];
+
+var lowerDebotDaySayings =
+						["11:00AM to 11:00PM",
+						"7:30AM to 11:00PM",
+						"7:30AM to 11:00PM",
+						"7:30AM to 11:00PM",
+						"7:30AM to 11:00PM",
+						"11:00AM to 11:00PM",
+						"11:00AM to 11:00PM"];
+
 var lowerDebotWeekTimes = "Monday to Friday<br />7:30AM to 11:00PM<br /><br />Saturday and Sunday<br />11:00AM to 11:00PM";
 
 /****CPS Cafe****/
@@ -173,7 +173,7 @@ var cpsCafeDaysTimes = [
                         [3, 7.75, 14.5],
                         [4, 7.75, 14.5],
                         [5, 7.75, 14]
-                       ];
+];
 
 var cpsCafeDaySayings = ["Sorry, we are closed today",
                          "7:45AM to 2:30PM",
@@ -195,188 +195,177 @@ var diningLocations = [
 				["lowerDebot", lowerDebotDaysTimes, lowerDebotDaySayings, lowerDebotWeekTimes],
                 ["cpsCafe", cpsCafeDaysTimes, cpsCafeDaySayings, cpsCafeWeekTimes],
                 ["brewhaus", brewhausDaysTimes, brewhausDaySayings, brewhausWeekTimes]
-                        ];
+];
 
 //OnLoad
 (function () {
-  'use strict';
-  
-  function DiningController($scope, $ionicHistory,  $timeout, $state) {
-  //OnLoad displays information
-  updateOpenOrClosed();
-  
-  //Refreshes the page every 5 minutes
-  window.setInterval(updateOpenOrClosed, 300000);
+    'use strict';
 
-  $($timeout(function () {
-      updateGroups();
-      documentReady = true;
-  }));
-	
-  }
+    function DiningController($scope, $ionicHistory, $timeout, $state) {
 
-  angular
-    .module('dining', [])
-    .controller('DiningController', DiningController);	
+        //OnLoad displays information
+        updateOpenOrClosed();
+
+        //Refreshes the page every 5 minutes
+        window.setInterval(updateOpenOrClosed, 300000);
+
+        $($timeout(function () {
+            updateGroups();
+            documentReady = true;
+        }));
+
+    }
+
+    angular
+      .module('dining', [])
+      .controller('DiningController', DiningController);
 })();
 
 //Sets up the content for each of the food locations
-function updateOpenOrClosed()
-{
+function updateOpenOrClosed() {
 
-	//Determines the Current Day
-	determineDay();
-	
-	//Sets the Locations to open/closed as well as their inner information
-	for(var i=0; i<diningLocations.length; i++)
-	{
-	    openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
-	}
+    //Determines the Current Day
+    determineDay();
 
-	if (documentReady) {
-	    updateGroups();
-	}
+    //Sets the Locations to open/closed as well as their inner information
+    for (var i = 0; i < diningLocations.length; i++) {
+        openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
+    }
+
+    if (documentReady) {
+        updateGroups();
+    }
 
 }
 
 //Finds the day based off of the date grabbed
-function determineDay()
-{
-	//Full date
-	currentdate = new Date(); 
+function determineDay() {
+    //Full date
+    currentdate = new Date();
 
-	//Grabs day
-	dayOfWeek =  (currentdate.getDay());
+    //Grabs day
+    dayOfWeek = (currentdate.getDay());
 
-	//Grabs hour
-	currentTimeHours = currentdate.getHours();
+    //Grabs hour
+    currentTimeHours = currentdate.getHours();
 
-	//Grabs minutes
-	currentTimeMinutes = currentdate.getMinutes();
+    //Grabs minutes
+    currentTimeMinutes = currentdate.getMinutes();
 
-	//Converts hours to minutes to get total minutes
-	currentTimeTotalMinutes=currentTimeHours*60 + currentTimeMinutes;
+    //Converts hours to minutes to get total minutes
+    currentTimeTotalMinutes = currentTimeHours * 60 + currentTimeMinutes;
 
-	//Determine which day it is and sets today
-	switch (dayOfWeek)
-	{
-		case 0:
-			today = "Sunday";
-			break;
-		case 1:
-			today = "Monday";
-			break;
-		case 2:
-			today = "Tuesday";
-			break;
-		case 3:
-			today = "Wednesday";
-			break;
-		case 4:
-			today = "Thursday";
-			break;
-		case 5:
-			today = "Friday";
-			break;
-		case 6:
-			today = "Saturday";
-	}
+    //Determine which day it is and sets today
+    switch (dayOfWeek) {
+        case 0:
+            today = "Sunday";
+            break;
+        case 1:
+            today = "Monday";
+            break;
+        case 2:
+            today = "Tuesday";
+            break;
+        case 3:
+            today = "Wednesday";
+            break;
+        case 4:
+            today = "Thursday";
+            break;
+        case 5:
+            today = "Friday";
+            break;
+        case 6:
+            today = "Saturday";
+    }
 }
 
 //Looks through each location array to determine whether it is open or closed
-function openOrClosed(id, array, sayings, weekTimes)
-{
+function openOrClosed(id, array, sayings, weekTimes) {
 
-	var isOpen=false;
+    var isOpen = false;
 
-	for(var i=0; i<array.length; i++)
-	{
-		if(array[i][0]===dayOfWeek)
-		{
-		    if (currentTimeTotalMinutes >= (array[i][1] * 60) && currentTimeTotalMinutes < (array[i][2] * 60)) {
-		        isOpen = true;
-		    }
-		}
-	}
-	
+    for (var i = 0; i < array.length; i++) {
+        if (array[i][0] === dayOfWeek) {
+            if (currentTimeTotalMinutes >= (array[i][1] * 60) && currentTimeTotalMinutes < (array[i][2] * 60)) {
+                isOpen = true;
+            }
+        }
+    }
+
     //When open show the gold star
 
-	if(isOpen)
-	{
-	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
-	    
-	    $("#" + id + "Grp").removeClass("isClosed").addClass("isOpen");
-	    
-	}
-	else
-	{     
-	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
-	    
-	    $("#" + id + "Grp").removeClass("isOpen").addClass("isClosed");
-	    
+    if (isOpen) {
+        document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
 
-	}
-	
-	//Displays the day and the time a location is open
-	document.getElementById(id + "Today").innerHTML="Today: " + today + "<br />" + sayings[dayOfWeek];
-	
-	//Displays the times for the week a location is open
-	document.getElementById(id + "Week").innerHTML= weekTimes;
+        $("#" + id + "Grp").removeClass("isClosed").addClass("isOpen");
+
+    }
+    else {
+        document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
+
+        $("#" + id + "Grp").removeClass("isOpen").addClass("isClosed");
+
+
+    }
+
+    //Displays the day and the time a location is open
+    document.getElementById(id + "Today").innerHTML = "Today: " + today + "<br />" + sayings[dayOfWeek];
+
+    //Displays the times for the week a location is open
+    document.getElementById(id + "Week").innerHTML = weekTimes;
 }
 
 //Shows all the content within the clicked dining location
-function changeViewDining(id)
-{
-	var id = id;
-	if($('#'+id+':visible').length === 0)
-	{
-		document.getElementById(id).style.display = "inline";	
-		//Sets the location of the open/closed icon so that it appears to be in the same location when open and closed.
-		switch(id) {
-			case "foodCourt":
-				document.getElementById(id + "Open").style.top= "-37%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -37%; font-size: 20px;\"></i>";
-				break;
-			case "redVest":
-				document.getElementById(id + "Open").style.top= "-34%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -35%; font-size: 20px;\"></i>";
-				break;
-			case "homegrown":
-				document.getElementById(id + "Open").style.top= "-38%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
-				break;
-			case "foodForThought":
-				document.getElementById(id + "Open").style.top= "-38%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
-				break;
-			case "upperDebot":
-				document.getElementById(id + "Open").style.top= "-44%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -44%; font-size: 20px;\"></i>";
-				break;
-			case "lowerDebot":
-				document.getElementById(id + "Open").style.top= "-39%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
-				break;
-		    case "cpsCafe":
-		        document.getElementById(id + "Open").style.top= "-32%";
-		        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
-		        break;
-		    case "brewhaus":
-		        document.getElementById(id + "Open").style.top = "-32%";
-		        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
-		        break;
-		    default:
-				document.getElementById(id + "Open").style.top = "-32%";
-				document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
-				break;
-		} 
-	}
-	else
-	{
-		document.getElementById(id).style.display = "none";
-		document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-down\" style=\"right: 1%; font-size: 20px;\"></i>";
-		document.getElementById(id + "Open").style.top= "-4%";
-	}
+function changeViewDining(id) {
+    var id = id;
+    if ($('#' + id + ':visible').length === 0) {
+        document.getElementById(id).style.display = "inline";
+        //Sets the location of the open/closed icon so that it appears to be in the same location when open and closed.
+        switch (id) {
+            case "foodCourt":
+                document.getElementById(id + "Open").style.top = "-37%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -37%; font-size: 20px;\"></i>";
+                break;
+            case "redVest":
+                document.getElementById(id + "Open").style.top = "-34%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -35%; font-size: 20px;\"></i>";
+                break;
+            case "homegrown":
+                document.getElementById(id + "Open").style.top = "-38%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+                break;
+            case "foodForThought":
+                document.getElementById(id + "Open").style.top = "-38%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+                break;
+            case "upperDebot":
+                document.getElementById(id + "Open").style.top = "-44%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -44%; font-size: 20px;\"></i>";
+                break;
+            case "lowerDebot":
+                document.getElementById(id + "Open").style.top = "-39%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+                break;
+            case "cpsCafe":
+                document.getElementById(id + "Open").style.top = "-32%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
+                break;
+            case "brewhaus":
+                document.getElementById(id + "Open").style.top = "-32%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -32%; font-size: 20px;\"></i>";
+                break;
+            default:
+                document.getElementById(id + "Open").style.top = "-32%";
+                document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-up\" style=\"right: 1%; top: -40%; font-size: 20px;\"></i>";
+                break;
+        }
+    }
+    else {
+        document.getElementById(id).style.display = "none";
+        document.getElementById(id + "Btn").innerHTML = "<i class=\"icon ion-chevron-down\" style=\"right: 1%; font-size: 20px;\"></i>";
+        document.getElementById(id + "Open").style.top = "-4%";
+    }
 }
 
 
@@ -384,13 +373,13 @@ function changeViewDining(id)
 function updateGroups() {
     var openElements = $(".isOpen").clone();
     var closedElements = $(".isClosed").clone();
-    
+
     $(".isOpen").addClass("removeMe");
     $(".isClosed").addClass("removeMe");
 
     $("#openGroup").append(openElements);
     $("#closedGroup").append(closedElements);
 
-    $(".removeMe").remove();
+    $(".removeMe").attr("id", "").hide();
 
 }
