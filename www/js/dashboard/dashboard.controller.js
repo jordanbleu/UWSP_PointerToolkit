@@ -6,7 +6,7 @@
             angular.element(document.getElementsByClassName('title')).addClass('header-item');
 
             if (firstRun) {
-                $("#dashboard-animation").addClass("animated zoomIn");
+                $("#dashboard-animation").addClass("animated fadeInDown");
                 firstRun = false;
             } else { $("#dashboard-animation").removeClass("zoomIn").addClass("slideInLeft"); }
         });
