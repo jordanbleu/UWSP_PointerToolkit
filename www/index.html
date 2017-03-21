@@ -70,7 +70,7 @@
     <script src="js/about/about.controller.js"></script>
     <!--<script src="js/Menu/Menu.controller.js"></script>-->
 </head>
-<body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important">
+<body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important; height: 95% !important">
     <ion-nav-bar class="UWSP-Purple">
         <ion-nav-back-button animation="no-animation" class="no-text UWSP-Purple" style="border: 0;" ng-click="myGoBack()">
             <i class="icon fa fa-chevron-left"></i>
@@ -81,7 +81,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
 
-    <ion-modal-view id="dotMenu" class="hide" style="width:80%;left:20%;">
+    <ion-modal-view id="dotMenu" class="hide" style="width:90%;left:20%;">
         <ion-header-bar class="UWSP-Purple bar bar-header active disable-user-behavior visible">
             <button class="no-text UWSP-Purple" ng-click="hideMenu()" style="border:none;width:50px;z-index:100;">
                 <i class="icon fa ion-close-round" style="font-size: 24px"></i>
@@ -103,8 +103,15 @@
             </ion-item>
 
             <!--<a nav-transition="none" ng-click="goTo('campusmap');" class="">-->
+            <a nav-transition="none" ui-sref="dashboard" ng-click="hideMenu()" class="">
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Home</h5>
+                </ion-item>
+            </a>
+
+
+            <!--<a nav-transition="none" ng-click="goTo('campusmap');" class="">-->
             <a nav-transition="none" ui-sref="campusmap" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/map.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Campus Maps</h5>
                 </ion-item>
@@ -112,7 +119,6 @@
 
             <!--<a nav-transition="none" href="#" ng-click="goTo('busroutes');" class="">-->
             <a nav-transition="none" ui-sref="busroutes" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/bus.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Bus Routes</h5>
                 </ion-item>
@@ -120,7 +126,6 @@
 
             <!--<a nav-transition="none" href="#" ng-click="goTo('notes');" class="">-->
             <a nav-transition="none" ui-sref="notes" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/notes.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Notes</h5>
                 </ion-item>
@@ -128,7 +133,6 @@
 
             <!--<a nav-transition="none" href="#" ng-click="goTo('quickLinks');" class="">-->
             <a nav-transition="none" ui-sref="quickLinks" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/quickLinks.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Links</h5>
                 </ion-item>
@@ -136,7 +140,6 @@
 
             <!--<a nav-transition="none" href="#" ng-click="goTo('sports');" class="">-->
             <a nav-transition="none" ui-sref="sports" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/sports.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Athletic Events</h5>
                 </ion-item>
@@ -144,13 +147,18 @@
 
             <!--<a nav-transition="none" href="#" ng-click="goTo('dining');" class="">-->
             <a nav-transition="none" ui-sref="dining" ng-click="hideMenu()" class="">
-                <img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">
                 <ion-item class="menuItem">
                     <h5 class="menuItemText">Dining Hours</h5>
                 </ion-item>
             </a>
 
-            <ion-item class="menuItem" onclick="alert('not yet implemented')">Campus Network</ion-item>
+            <a nav-transition="none" ui-sref="about" ng-click="hideMenu()" onclick="alert('not yet implemented')" class="">
+                <!--<img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">-->
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Campus Network</h5>
+                </ion-item>
+            </a>
+                       
 
             <a nav-transition="none" ui-sref="about" ng-click="hideMenu()" class="">
                 <!--<img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">-->
@@ -165,8 +173,8 @@
 
 
 
-
-    <ion-nav-view>
+    
+    <ion-nav-view id="ContentView" style="height:95% !important; overflow:no-display">
         <!--Here's where all the content gets injected-->
     </ion-nav-view>
 </body>

@@ -19,15 +19,15 @@
 </style>
 
 <ion-view cache-view="true" title="My Notes">
-<div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInDown" style="padding: 0;" >
+<div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;max-height:80%" >
   
 	<!--View when editing/creating notes-->
 	<div id="editNotes" style="height: 90%;">
 		<div class="row">
-			<div class="col col-67">
+			<div class="col col-md-6">
 				<div class="list">
 					<label class="item item-input" id="title" for="newTitle">
-						<input type="text" placeholder="Title" id="newTitle">
+						<input type="text" placeholder="Title" id="newTitle" tabindex="-1" autofocus style="width:80%;"/>
 					</label>
 				</div>
 			</div>
@@ -41,9 +41,9 @@
 			</div>
 	   </div>
 		   
-		<div class="row" style="height:99%;">
-			<div class="col" style="height:99%;">
-			    <label class="item item-input" id="note" style="height:99%;">
+		<div class="row" style="height:80%;">
+			<div class="col" style="height:80%;">
+			    <label class="item item-input" id="note" style="height:80%;">
 					<textarea placeholder="Notes" id="newNote"></textarea>
 			    </label>
 			</div>

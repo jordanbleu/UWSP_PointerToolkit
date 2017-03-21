@@ -429,7 +429,7 @@
       .style("cursor", "pointer")
       .style("z-index", "1000")
       .style("opacity", "1")
-      .style("filter", "url(#drop-shadow)");
+      //.style("filter", "url(#drop-shadow)");
 
       //attach click event to stops (to load modal w/ more info)
       g.selectAll(".stops").on("click", function(scope) {
@@ -456,7 +456,7 @@
       .attr("id", "marker")
       .attr("class", "travelMarker")
       .style("pointer-events", "none")
-      .style("filter", "url(#drop-shadow)");
+      //.style("filter", "url(#drop-shadow)");
       //append the bus icon to the marker element
       angular.element(document.getElementById('marker')).append(busIcon);
 

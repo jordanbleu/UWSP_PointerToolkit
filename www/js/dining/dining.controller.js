@@ -1,5 +1,7 @@
 //Today is string based on the dayOfWeek
-var today="";
+var today = "";
+
+var documentReady = false;
 
 /****Food Court****/
 var foodCourtDaysTimes = [
@@ -203,8 +205,13 @@ var diningLocations = [
   //OnLoad displays information
   updateOpenOrClosed();
   
-  //Refreshes the page every half minute.
-  window.setInterval(updateOpenOrClosed, 30000);
+  //Refreshes the page every 5 minutes
+  window.setInterval(updateOpenOrClosed, 300000);
+
+  $($timeout(function () {
+      updateGroups();
+      documentReady = true;
+  }));
 	
   }
 
@@ -225,6 +232,11 @@ function updateOpenOrClosed()
 	{
 	    openOrClosed(diningLocations[i][0], diningLocations[i][1], diningLocations[i][2], diningLocations[i][3]);
 	}
+
+	if (documentReady) {
+	    updateGroups();
+	}
+
 }
 
 //Finds the day based off of the date grabbed
@@ -274,18 +286,16 @@ function determineDay()
 //Looks through each location array to determine whether it is open or closed
 function openOrClosed(id, array, sayings, weekTimes)
 {
-  
+
 	var isOpen=false;
 
 	for(var i=0; i<array.length; i++)
 	{
 		if(array[i][0]===dayOfWeek)
 		{
-			if(currentTimeTotalMinutes>=(array[i][1]*60)&& currentTimeTotalMinutes<(array[i][2]*60))
-			{
-
-				isOpen=true;
-			}
+		    if (currentTimeTotalMinutes >= (array[i][1] * 60) && currentTimeTotalMinutes < (array[i][2] * 60)) {
+		        isOpen = true;
+		    }
 		}
 	}
 	
@@ -294,12 +304,17 @@ function openOrClosed(id, array, sayings, weekTimes)
 	if(isOpen)
 	{
 	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
-	    document.getElementById(id + "OpenText").innerHTML = "";
+	    
+	    $("#" + id + "Grp").removeClass("isClosed").addClass("isOpen");
+	    
 	}
 	else
-	{
+	{     
 	    document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
-	    document.getElementById(id + "OpenText").innerHTML = "[Closed]";
+	    
+	    $("#" + id + "Grp").removeClass("isOpen").addClass("isClosed");
+	    
+
 	}
 	
 	//Displays the day and the time a location is open
@@ -362,4 +377,20 @@ function changeViewDining(id)
 		document.getElementById(id + "Btn").innerHTML= "<i class=\"icon ion-chevron-down\" style=\"right: 1%; font-size: 20px;\"></i>";
 		document.getElementById(id + "Open").style.top= "-4%";
 	}
+}
+
+
+
+function updateGroups() {
+    var openElements = $(".isOpen").clone();
+    var closedElements = $(".isClosed").clone();
+    
+    $(".isOpen").addClass("removeMe");
+    $(".isClosed").addClass("removeMe");
+
+    $("#openGroup").append(openElements);
+    $("#closedGroup").append(closedElements);
+
+    $(".removeMe").remove();
+
 }

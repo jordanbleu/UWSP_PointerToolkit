@@ -17,27 +17,51 @@
         margin-right: 10px;
        }
 
+       .group {
+            font-size: 14px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: grey;
+            color: white;     
+            border: none; 
+       }
+
+       .isOpen {
+        font-size: 900px;
+       }
+
       
    </style>
-   <div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInDown" style="padding: 0;" >
-      <div class="list">
-	<!--Food Court-->
-         <div onmousedown="changeViewDining('foodCourt')" style="background-color:green">
-            <a class="item item-icon-left item-icon-right" href="#">
-               <i class="icon" id="foodCourtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
-                <div id="foodCourtTitle">DUC Food Court</div><span id="foodCourtOpenText"></span>
-               <div id="foodCourt">
-                  <br /><span class="wrap" id="foodCourtToday">input</span>
-                  <br/><br/><span class="wrap" id="foodCourtWeek">input</span>
-               </div>
-               <div id="foodCourtBtn">
-                  <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
-               </div>
-            </a>
-         </div>
+   
+   <div id="dashboard-animation" class="scroll-content ionic-scroll overflow-scroll has-header animated fadeInRight" style="padding: 0;" >
+       <div class="list">
+           <div id="openGroup">
+               <h4 class="group item">Open</h4>
+           </div>
+
+           <div id="closedGroup">
+               <h4 class="group item">Closed</h4>
+
+
+           </div>
+
+           <!--Food Court-->
+    <div onmousedown="changeViewDining('foodCourt')" style="background-color:green" id="foodCourtGrp">
+        <a class="item item-icon-left item-icon-right" href="#">
+            <i class="icon" id="foodCourtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
+            <div id="foodCourtTitle">DUC Food Court</div><span id="foodCourtOpenText"></span>
+            <div id="foodCourt">
+                <br /><span class="wrap" id="foodCourtToday">input</span>
+                <br /><br /><span class="wrap" id="foodCourtWeek">input</span>
+            </div>
+            <div id="foodCourtBtn">
+                <i class="icon ion-chevron-down" style="right: 1%; font-size: 20px;"></i>
+            </div>
+        </a>
+    </div>
 
     <!--Basement Brewhaus-->
-        <div onmousedown="changeViewDining('brewhaus')">
+        <div onmousedown="changeViewDining('brewhaus')" id="brewhausGrp">
             <a class="item item-icon-left item-icon-right" href="#">
                 <i class="icon" id="brewhausOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i>
                 <div id="brewhausTitle">Basement Brewhaus</div><span id="brewhausOpenText"></span>
@@ -51,7 +75,7 @@
             </a>
         </div>
 	<!--The Red Vest-->
-         <div onmousedown="changeViewDining('redVest')">
+         <div onmousedown="changeViewDining('redVest')" id="redVestGrp">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="redVestOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
                 <div id="redVestTitle">The Red Vest</div><span id="redVestOpenText"></span>
@@ -65,7 +89,7 @@
             </a>
          </div>
 	<!--Homegrown-->
-         <div onmousedown="changeViewDining('homegrown')">
+         <div onmousedown="changeViewDining('homegrown')" id="homegrownGrp">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="homegrownOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
                 <div homegrownTitle">Homegrown</div><span id="homegrownOpenText"></span>
@@ -79,7 +103,7 @@
             </a>
          </div>
     <!--Food for Thought-->
-		 <div onmousedown="changeViewDining('foodForThought')">
+		 <div onmousedown="changeViewDining('foodForThought')" id="foodForThoughtGrp">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="foodForThoughtOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
                 <div id="foodForThoughtTitle">Food for Thought</div><span id="foodForThoughtOpenText"></span>
@@ -93,7 +117,7 @@
             </a>
          </div>
     <!--Upper Deobot-->
-		 <div onmousedown="changeViewDining('upperDebot')">
+		 <div onmousedown="changeViewDining('upperDebot')" id="upperDebotGrp">
             <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="upperDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed"></object></i>
                 <div id="upperDebotTitle">Upper Debot</div><span id="upperDebotOpenText"></span>
@@ -107,7 +131,7 @@
             </a>
          </div>
 	<!--Lower Deobot-->
-         <div onmousedown="changeViewDining('lowerDebot')">
+         <div onmousedown="changeViewDining('lowerDebot')" id="lowerDebotGrp">
            <a class="item item-icon-left item-icon-right" href="#">
                <i class="icon" id="lowerDebotOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml"  class="closed" style="color: red;"></object></i>
                <div id="lowerDebotTitle">Lower Debot</div><span id="lowerDebotOpenText"></span>
@@ -121,7 +145,7 @@
            </a>
          </div>
     <!--CPS Cafe-->
-         <div onmousedown="changeViewDining('cpsCafe')">
+         <div onmousedown="changeViewDining('cpsCafe')" id="cpsCafeGrp">
            <a class="item item-icon-left item-icon-right" href="#">
              <i class="icon" id="cpsCafeOpen"><object data="lib/Ionicons/src/close-circled.svg" type="image/svg+xml" class="closed"></object></i> 
                <div id="cpsCafeTitle">CPS Cafe</div><span id="cpsCafeOpenText"></span>

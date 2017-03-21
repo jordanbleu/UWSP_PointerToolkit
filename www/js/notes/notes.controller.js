@@ -40,6 +40,8 @@ var originalNoteContent;
 // Parameter e: event arguments
 function startNotes(e) {
 	
+   
+
 	// Variables
 	var srcId;
 	var noteTitle;
@@ -96,9 +98,12 @@ function startNotes(e) {
 	// Show note list
 	$('#editNotes').show();
 	
-	// Hide notes
+	// Hide notes fab and list
 	$('#notesFab').hide();
 	$('#noteList').hide();
+
+	//$("#newTitle").trigger("focus");
+	document.getElementById("newTitle").focus();
 	
 }// end function
 
