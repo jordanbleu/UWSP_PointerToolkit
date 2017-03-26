@@ -2,34 +2,34 @@
     'use strict';
     function DashboardController($scope, $ionicHistory, $timeout, $state) {
         var firstRun = true;
+
+        $timeout(function () {
+            
+        });
+
         $scope.$on('$ionicView.beforeEnter', function () {
             angular.element(document.getElementsByClassName('title')).addClass('header-item');
-            // on the dashboard menu, the menu automatically expands
-            $("#dotMenu")
-               .removeClass('animated slideOutRight')
-               .addClass('animated slideInRight').fadeIn(500);
+            
+
             if (firstRun) {
-                //angular.element(document.getElementsByTagName('ion-header-bar')).addClass('animated slideInDown');
+                $("#dashboard-animation").addClass("animated fadeInDown");
                 firstRun = false;
+            } else {
+                $("#dashboard-animation").removeClass("slideOutLeft").removeClass("fadeInDown").addClass("animated fadeInLeft");
             }
         });
+
         $scope.goTo = function (destination) {
             angular.element(document.getElementById('dashboard-animation'))
             .removeClass('animated fadeInLeft')
             .addClass('animated slideOutLeft');
-            angular.element(document.getElementsByTagName('ion-header-bar'))
-            .removeClass('animated slideInDown')
-            .addClass('animated fadeOutUp');
+
             $timeout(function () {
-                angular.element(document.getElementById('dashboard-animation'))
-                .removeClass('animated slideOutLeft')
-                .addClass('animated fadeInLeft');
-                angular.element(document.getElementsByTagName('ion-header-bar'))
-                .removeClass('animated fadeOutUp')
-                .addClass('animated fadeInDown');
+                angular.element(document.getElementById('dashboard-animation'));
+                //.removeClass('animated slideOutLeft')
                 angular.element(document.getElementsByClassName('title')).removeClass('mainTitle');
                 $state.go(destination);
-            }, 200); // This is now faster
+            }, 300); // This is now faster
         }
 
         Waves.attach('.ripple', ['waves-button', 'waves-light']);

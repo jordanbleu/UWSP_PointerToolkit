@@ -139,21 +139,27 @@
         // Construct the Map with all appropriate properties
         function construct() {
             svg = d3.select(leafletMap.getPanes().overlayPane).append("svg");
-            g = svg.append("g").attr("class", "leaflet-zoom-hide");
+                        
+
+            g = svg.append("g").attr("class", "leaflet-zoom-hide")
+                .attr("width", "auto").attr("width", "auto");
+            //g = svg.append("object").attr("class", "leaflet-zoom-hide")
+            //    .attr("width", "auto").attr("width", "auto").attr("type", "image/svg+xml");
+
 
             // filters go in defs element
             var defs = svg.append("defs");
             // create filter with id #drop-shadow
             var filter = defs.append("filter")
-            .attr("id", "drop-shadow")
+            .attr("id", "drop-shadow") 
             .attr("height", "180%");
             // SourceAlpha refers to opacity of graphic that this filter will be applied to
             // convolve that with a Gaussian with standard deviation 2 and store result
             // in blur
-            filter.append("feGaussianBlur")
-            .attr("in", "SourceAlpha")
-            .attr("stdDeviation", 2)
-            .attr("result", "blur");
+                                //filter.append("feGaussianBlur")
+                                //.attr("in", "SourceAlpha") //<------------------------------------- Commenting this out removes the blurriness
+                                //.attr("stdDeviation", 2)
+                                //.attr("result", "blur");
             // overlay original SourceGraphic over translated blurred opacity by using
             // feMerge filter. Order of specifying inputs is important!
             var feMerge = filter.append("feMerge");
@@ -161,6 +167,7 @@
             .attr("in", "offsetBlur")
             feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
+            
 
             var fullBuildingData = geojsoncollection.features;
 
@@ -175,8 +182,8 @@
               .attr("imageUrl", function (d, i) { return fullBuildingData[i].properties.imageUrl; })
               .attr("center", function (d, i) { return fullBuildingData[i].properties.center; })
               .attr("entrance", function (d, i) { return fullBuildingData[i].properties.entrance; })
-              .attr("maps", function (d, i) { return fullBuildingData[i].properties.maps; })
-              .style("filter", "url(#drop-shadow)");
+              .attr("maps", function (d, i) { return fullBuildingData[i].properties.maps; });
+              //.style("filter", "url(#drop-shadow)");
 
             g.selectAll(".building").on("click", function (scope) {
                 $scope.loadModal(this);
@@ -243,6 +250,8 @@
             leafletMap.on('locationfound', onLocationFound);
             leafletMap.on('locationerror', onFailedToFindLocation);
 
+
+            fixWebkitBug();
         }//end construct()
 
         // Creates the BuildingInfo Modal and gets the appropriate variables for it's use
@@ -616,3 +625,8 @@
     .controller('CampusMapController', CampusMapController);
 
 })();
+
+
+function fixWebkitBug() {
+
+}

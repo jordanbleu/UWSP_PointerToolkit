@@ -60,6 +60,7 @@
         $ionicConfigProvider.scrolling.jsScrolling(false);
         $ionicConfigProvider.navBar.alignTitle('center');
         $ionicConfigProvider.views.transition('none');
+        $ionicConfigProvider.backButton.previousTitleText(false);
 
     }
 
@@ -77,16 +78,12 @@
             angular.element(document.getElementsByClassName('animated fadeInRight'))
             .removeClass('animated fadeInRight')
             .addClass('animated slideOutRight');
-            //angular.element(document.getElementsByTagName('ion-header-bar'))
-            //.removeClass('animated fadeInDown')
-            //.addClass('animated fadeOutUp');
+
             $timeout(function () {
                 angular.element(document.getElementsByClassName('animated slideOutRight'))
                 .removeClass('animated slideOutRight')
                 .addClass('animated fadeInRight');
-                //angular.element(document.getElementsByTagName('ion-header-bar'))
-                //.removeClass('animated fadeOutUp')
-                //.addClass('animated fadeInDown');
+
                 $ionicHistory.goBack();
             }, 200); // this is now faster
 
@@ -95,24 +92,15 @@
             //$ionicHistory.clearCache();
         }
 
-        //$scope.goTo = function (destination) {
-        //    angular.element(document.getElementById('dashboard-animation'))
-        //    .removeClass('animated fadeInLeft')
-        //    .addClass('animated slideOutLeft');
-        //    //angular.element(document.getElementsByTagName('ion-header-bar'))
-        //    //.removeClass('animated slideInDown')
-        //    //.addClass('animated fadeOutUp');
-        //    $timeout(function () {
-        //        angular.element(document.getElementById('dashboard-animation'))
-        //        .removeClass('animated slideOutLeft')
-        //        .addClass('animated fadeInLeft');
-        //        angular.element(document.getElementsByClassName('title')).removeClass('mainTitle');
-        //        $state.go(destination);
-        //    }, 200); // This is now faster
-        //}
 
         // this here code shows the menu
         $scope.showMenu = function () {
+            
+            $("#ContentView").animate({
+                opacity: 0.25
+            }, 500);
+            
+
             $("#dotMenu")
                 .removeClass('animated slideOutRight')
                 .addClass('animated slideInRight').fadeIn(500);
@@ -122,6 +110,9 @@
 
         // this here code hides the menu
         $scope.hideMenu = function () {
+            $("#ContentView").animate({
+                opacity: 1
+            },500);
             $("#dotMenu").removeClass('animated slideInRight')
                 .addClass('animated slideOutRight').fadeOut(500);
 
