@@ -44,6 +44,12 @@
             controller: 'SportsController'
         });
 
+        $stateProvider.state('wirelessReport', {
+            url: '/wirelessReport',
+            templateUrl: 'js/wirelessReport/wirelessReport.template.html',
+            controller: 'WirelessReportController'
+        });
+
         $stateProvider.state('about', {
             url: '/about',
             templateUrl: 'js/about/about.template.html',

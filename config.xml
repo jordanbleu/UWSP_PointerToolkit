@@ -91,4 +91,10 @@
   <plugin name="cordova-plugin-whitelist" version="1.3.1" />
   <plugin name="ionic-plugin-keyboard" version="2.2.1" />
   <preference name="ShowTitle" value="False" />
+  <plugin name="cordova-plugin-email-composer" version="0.8.3" src="https://github.com/katzer/cordova-plugin-email-composer" />
+  <plugin name="cordova-plugin-network-information" version="1.3.3-dev" src="https://github.com/apache/cordova-plugin-network-information" />
+  <plugin name="org.apache.cordova.signal-strength" version="1.0.0" src="https://github.com/petervojtek/cordova-plugin-signal-strength" />
+  <plugin name="com.pylonproducts.wifiwizard" version="0.2.11" src="https://github.com/hoerresb/WifiWizard" />
+  <plugin name="cordova-plugin-wifi" version="0.5.0" src="https://github.com/floatinghotpot/cordova-plugin-wifi" />
+  <plugin name="nl.nielsad.cordova.wifiscanner" version="0.0.1" src="https://github.com/nielsAD/cordova-wifiscanner" />
 </widget>
