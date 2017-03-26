@@ -67,6 +67,7 @@
     <script src="js/notes/notes.controller.js"></script>
     <script src="js/busroutes/busroutes.controller.js"></script>
     <script src="js/sports/sports.controller.js"></script>
+    <script src="js/wirelessReport/wirelessReport.controller.js"></script>
     <script src="js/about/about.controller.js"></script>
     <!--<script src="js/Menu/Menu.controller.js"></script>-->
 </head>
@@ -150,7 +151,12 @@
                 </ion-item>
             </a>
 
-            <ion-item class="menuItem" onclick="alert('not yet implemented')">Campus Network</ion-item>
+            <a nav-transition="none" ui-sref="wirelessReport" ng-click="hideMenu()" class="">
+                <!--<img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">-->
+                <ion-item class="menuItem">
+                    <h5 class="menuItemText">Campus Network</h5>
+                </ion-item>
+            </a>
 
             <a nav-transition="none" ui-sref="about" ng-click="hideMenu()" class="">
                 <!--<img class="menuIcon" src="assets/img/moduleIcons/foodHours.png">-->

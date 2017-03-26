@@ -11,6 +11,7 @@
              'notes',
              'quickLinks',
 			 'sports',
+             'wirelessReport',
              'about',
              '720kb.tooltips'
            ]);
@@ -36,6 +37,9 @@
 	
   angular
     .module('sports', ['leaflet-directive', 'swipe']);
+
+  angular
+  .module('wirelessReport', ['leaflet-directive', 'swipe']);
 
   angular
     .module('about', ['leaflet-directive', 'swipe']);

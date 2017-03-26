@@ -24,6 +24,24 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "org.apache.cordova.signal-strength": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "com.pylonproducts.wifiwizard": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-wifi": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "nl.nielsad.cordova.wifiscanner": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         }
     },
     "dependent_plugins": {
