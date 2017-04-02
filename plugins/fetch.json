@@ -90,23 +90,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-wifi": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/floatinghotpot/cordova-plugin-wifi",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "nl.nielsad.cordova.wifiscanner": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nielsAD/cordova-wifiscanner",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }

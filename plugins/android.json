@@ -31,13 +31,7 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
-        "cordova-plugin-wifi": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
-        "nl.nielsad.cordova.wifiscanner": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "org.apache.cordova.signal-strength": {

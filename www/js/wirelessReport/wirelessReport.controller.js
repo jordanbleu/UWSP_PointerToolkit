@@ -11,8 +11,7 @@
         $scope.showConfirm = function () {
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Wireless Diagnostics',
-                template: 'This will run a Wireless Report to be emailed to UWSP for troubleshooting. ' +
-                    'Are you sure you would like to continue?'
+                template: 'This will run a Wireless Report to be emailed to UWSP IT for troubleshooting.'
             });
 
             confirmPopup.then(function (res) {
@@ -24,20 +23,36 @@
             });
         };
         $scope.showConfirm();
+        checkConnectionDone = false;
+        getConnectionDone = false;
+        getGPSCoordsDone = false;
+        composeEmailDone = false; 
     }
 })();
 
 //variable to hold device information later to be converted to csv
-var WifiReportCSV = 'Device Platform, Device UUID, Device Version, Connection Type, ' +
-                    'Latitude, Longitude, Accuracy, Timestamp, Signal Strength';
+var deviceInfoCSV = 'Device Platform, Device UUID, Device Version, Connection Type, ' +
+                    'Latitude, Longitude, Accuracy, Timestamp\n';
+
+var wapInfoCSV = 'Level, SSID, BSSID, Frequency';
 var date = new Date();
-var logFileName = 'wifiReport-' + formatDateToYMDHMS(date);
+var deviceInfoFileName = 'deviceInfo-' + formatDateToYMDHMS(date);
+var wapInfoFileName = 'wapInfo-' + formatDateToYMDHMS(date);
+
+var checkConnectionDone = false;
+var getConnectionDone = false;
+var getGPSCoordsDone = false;
+var composeEmailDone = false;
+var composeEmailInterval;
+
 
 function getDeviceInfo() {
     var element = document.getElementById('deviceProperties');
     element.innerHTML = 'Device Platform: ' + device.platform + '<br />' +
                         'Device UUID: ' + device.uuid + '<br />' +
                         'Device Version: ' + device.version + '<br />';
+
+    deviceInfoCSV += device.platform + ', ' + device.uuid + ', ' + device.version + ', ';
 
     if (device.platform === "Android") {
         androidCommands();
@@ -48,22 +63,29 @@ function getDeviceInfo() {
     else {
         alert('This feature is not supported on this platform.')
     }
-
-    WifiReportCSV = WifiReportCSV + device.platform + ', ' + device.uuid + ', ' + device.version + ', ';
 }
 
 function androidCommands() {
     checkConnection();
-    getGPSCoords();
-    getSignalStrength();
     getConnectionInfo();
-    composeEmail();
+    getGPSCoords();
+
+    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 100);
 }
 
 function appleCommands() {
     checkConnection();
+    getConnectionInfo();
     getGPSCoords();
-    getSignalStrength();
+
+    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 100);
+}
+
+function checkIfReadyToEmail() {
+    if (checkConnectionDone && getConnectionDone && getGPSCoordsDone && !composeEmailDone) {
+        composeEmail();
+        window.clearInterval(composeEmailInterval);
+    }
 }
 
 function checkConnection() {
@@ -83,10 +105,13 @@ function checkConnection() {
     var element = document.getElementById('connectionType');
     element.innerHTML = 'Connection type: ' + states[networkState];
 
-    WifiReportCSV = WifiReportCSV + states[networkState] + ', ';
+    deviceInfoCSV += states[networkState] + ', ';
+
+    checkConnectionDone = true;
 }
 
 function getGPSCoords() {
+
     var onSuccess = function (position) {
         var GPSlocation = ('Latitude: ' + position.coords.latitude + '<br />' +
          'Longitude: ' + position.coords.longitude + '<br />' +
@@ -96,69 +121,74 @@ function getGPSCoords() {
         var element = document.getElementById('GPSCoords');
         element.innerHTML = 'GPS Information: <br />' + GPSlocation;
 
-        WifiReportCSV = WifiReportCSV + position.coords.latitude + ', ' + position.coords.longitude + ', ' +
-                                        position.coords.accuracy + ', ' + formatDateToYMDHMS(date) + ', ';
+        deviceInfoCSV += position.coords.latitude + ', ' + position.coords.longitude + ', ' +
+                         position.coords.accuracy + ', ' + formatDateToYMDHMS(date) + ', ';
+
+        getGPSCoordsDone = true;
     };
-    var onFailure = function (position) {
+    var onFailure = function () {
         var element = document.getElementById('GPSCoords');
         element.innerHTML = 'GPS Location: Failed';
 
-        WifiReportCSV = WifiReportCSV + 'null, null, null, null, null, ' + formatDateToYMDHMS(date);
+        deviceInfoCSV += 'null, null, null, null, null, ' + formatDateToYMDHMS(date);
+
+        getGPSCoordsDone = true;
     }
-    var GPSLocation = navigator.geolocation.getCurrentPosition(onSuccess, onFailure);
+
+    var GPSLocation = navigator.geolocation.getCurrentPosition(onSuccess, onFailure, { timeout: 10000 });
 }
 
-function getSignalStrength() {
-    window.SignalStrength.dbm(
-        function (measuredDbm) {
-            var element = document.getElementById('signalStrength');
-            element.innerHTML = 'Signal Strength: ' + measuredDbm;
+//function getSignalStrength() {
+//    window.SignalStrength.dbm(
+//        function (measuredDbm) {
+//            var element = document.getElementById('signalStrength');
+//            element.innerHTML = 'Signal Strength: ' + measuredDbm;
 
-            WifiReportCSV = WifiReportCSV + measuredDbm;
-        })
-}
+//            deviceInfoCSV += measuredDbm;
+//        })
+//}
 
 function composeEmail() {
-    var att = btoa(WifiReportCSV);
+
+    var deviceInfoAtt = btoa(deviceInfoCSV);
+    var wapInfoAtt = btoa(wapInfoCSV);
+    composeEmailDone = true;
+
     cordova.plugins.email.open({
         to: 'mbuta331@uwsp.edu',
         //cc: '',
         //bcc: ['john@doe.com', 'jane@doe.com'],
         subject: 'Test',
         body: 'Test',
-        attachments: 'base64:' + logFileName + '.csv//' + att
+        attachments: [
+            'base64:' + deviceInfoFileName + '.csv//' + deviceInfoAtt,
+            'base64:' + wapInfoFileName + '.csv//' + wapInfoAtt
+            ]
     })
 }
 
 function getConnectionInfo() {
-    var results = AccessPoon
+
+    WifiWizard.getScanResults(listHandler);
+
+    function listHandler(resultsList) {
+
+        var element = document.getElementById('connectionInfo');
+        element.innerHTML = "";
+
+        for (var i=0; i < resultsList.length; i++)
+        {
+            wapInfoCSV += '\n' + resultsList[i].level + ',' +
+                                 resultsList[i].SSID + ',' +
+                                 resultsList[i].BSSID + ',' +
+                                 resultsList[i].frequency;
+
+            if (i != resultsList.length - 1)
+            {
+                wapInfoCSV += ',';
+            }
+        }
+        element.innerHTML = "Wireless Information Loaded";
+        getConnectionDone = true;
+    }
 }
-
-//function getConnectionInfo() {
-//    startScan();
-//    function startScan() {
-//        WifiWizard.startScan(success, fail);
-//        var element = document.getElementById('connectionInfo');
-//        element.innerHTML = 'Started scan...';
-//    }
-
-//    function success() {
-//        getScanResult();
-//    }
-
-//    getScanResult();
-
-//    function getScanResult() {
-//        WifiWizard.getScanResults(listHandler(results), fail);
-//    }
-
-//    function listHandler(results) {
-//        alert(results);
-//        var element = document.getElementById('connectionInfo');
-//        element.innerHTML = 'Connection Info: ' + results;
-//    }
-
-//    function fail() {
-//        //meh
-//    }
-//}
