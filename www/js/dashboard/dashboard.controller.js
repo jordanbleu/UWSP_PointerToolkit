@@ -3,8 +3,7 @@
     function DashboardController($scope, $ionicHistory, $timeout, $state) {
         var firstRun = true;
 
-        $timeout(function () {
-            
+        $timeout(function () {         
         });
 
         $scope.$on('$ionicView.beforeEnter', function () {

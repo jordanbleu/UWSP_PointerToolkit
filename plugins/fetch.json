@@ -54,59 +54,5 @@
         },
         "is_top_level": false,
         "variables": {}
-    },
-    "cordova-plugin-email-composer": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/katzer/cordova-plugin-email-composer",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-network-information": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-network-information",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.signal-strength": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/petervojtek/cordova-plugin-signal-strength",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.pylonproducts.wifiwizard": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/hoerresb/WifiWizard",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-wifi": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/floatinghotpot/cordova-plugin-wifi",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "nl.nielsad.cordova.wifiscanner": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nielsAD/cordova-wifiscanner",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }
