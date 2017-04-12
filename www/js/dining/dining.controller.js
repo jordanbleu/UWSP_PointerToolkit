@@ -203,6 +203,8 @@ var diningLocations = [
 
     function DiningController($scope, $ionicHistory, $timeout, $state) {
 
+   
+
         //OnLoad displays information
         updateOpenOrClosed();
 
@@ -210,6 +212,8 @@ var diningLocations = [
         window.setInterval(updateOpenOrClosed, 300000);
 
         $($timeout(function () {
+            // Removes any previous group data 
+            initGroups();
             updateGroups();
             documentReady = true;
         }));
@@ -296,17 +300,12 @@ function openOrClosed(id, array, sayings, weekTimes) {
     //When open show the gold star
 
     if (isOpen) {
-        document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
-
+        //document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/checkmark-circled-green.svg\" type=\"image/svg+xml\" class=\"open\" style=\"height: 24px;\"></object>";
         $("#" + id + "Grp").removeClass("isClosed").addClass("isOpen");
-
     }
     else {
-        document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
-
+        //document.getElementById(id + "Open").innerHTML = "<object data=\"assets/img/close-circled-red.svg\" type=\"image/svg+xml\" class=\"closed\" style=\"height: 24px;\"></object>";
         $("#" + id + "Grp").removeClass("isOpen").addClass("isClosed");
-
-
     }
 
     //Displays the day and the time a location is open
@@ -369,17 +368,40 @@ function changeViewDining(id) {
 }
 
 
+/*
+    Ionic throws errors if you try to remove an element from the template.  The code
+    below works around this by creating clones of the elements, appending them to the
+    "open" or "closed" groups, and then hiding the original elements
+*/
 
+
+// initGroups() deletes all cloned elements and shows the original template elements
+function initGroups() {
+    
+    // show the original elements and remove the "removeMe" class
+    $(".removeMe").show().removeClass("removeMe");
+    
+    // remove the clones
+    $(".cloned").remove();
+}
+
+// updateGroups() clones the template elements into the appropriate "open" or "closed" container,
+//    then it hides the original elements
 function updateGroups() {
-    var openElements = $(".isOpen").clone();
-    var closedElements = $(".isClosed").clone();
 
+    // clone all the elements with the .isOpen and the .isClosed class
+    var openElements = $(".isOpen").clone().addClass("cloned");
+    var closedElements = $(".isClosed").clone().addClass("cloned");
+
+    // add a class to hide the existing elements
     $(".isOpen").addClass("removeMe");
     $(".isClosed").addClass("removeMe");
 
+    // append the clones to the groups
     $("#openGroup").append(openElements);
     $("#closedGroup").append(closedElements);
 
+    // hide the original elements
     $(".removeMe").attr("id", "").hide();
 
 }

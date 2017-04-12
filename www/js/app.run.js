@@ -11,6 +11,29 @@
       if(window.StatusBar) {
         StatusBar.styleDefault();
       }
+
+        // Custom Android hardware back button handler
+      $ionicPlatform.registerBackButtonAction(function (e) {
+          // Prevent the default functionality
+          e.preventDefault();
+          e.stopPropagation();
+
+          // if the menu is open, close it 
+          if ($("#dotMenu").data("isOpen")) {
+              if ($ionicHistory.currentStateName() == "dashboard") {
+                  $window.scope.hideMenu();
+              } else {
+                  $window.scope.$parent.hideMenu();
+              }
+              // If the menu is not open...
+          } else  {
+              $ionicHistory.goBack();
+          }
+      }, 100);
+
+
+
+
     });
   }
 

@@ -7,19 +7,10 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.pylonproducts.wifiwizard": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
-        "cordova-plugin-email-composer": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
-        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "cordova-plugin-splashscreen": {
@@ -31,16 +22,7 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
-        "cordova-plugin-wifi": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
-        "nl.nielsad.cordova.wifiscanner": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
-        "org.apache.cordova.signal-strength": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         }
     },

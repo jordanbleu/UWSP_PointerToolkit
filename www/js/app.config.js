@@ -44,16 +44,16 @@
             controller: 'SportsController'
         });
 
-        $stateProvider.state('wirelessReport', {
-            url: '/wirelessReport',
-            templateUrl: 'js/wirelessReport/wirelessReport.template.html',
-            controller: 'WirelessReportController'
-        });
-
         $stateProvider.state('about', {
             url: '/about',
             templateUrl: 'js/about/about.template.html',
             controller: 'AboutController'
+        });
+
+        $stateProvider.state('campusEvents', {
+            url: '/campusEvents',
+            templateUrl: 'js/campusEvents/campusEvents.template.html',
+            controller: 'campusEventsController'
         });
 
         $urlRouterProvider.otherwise('/dashboard');
@@ -103,7 +103,8 @@
 
             $("#dotMenu")
                 .removeClass('animated slideOutRight')
-                .addClass('animated slideInRight').fadeIn(500);
+                .addClass('animated slideInRight').fadeIn(500)
+                .data("isOpen", true);
 
 
         }
@@ -114,8 +115,8 @@
                 opacity: 1
             },500);
             $("#dotMenu").removeClass('animated slideInRight')
-                .addClass('animated slideOutRight').fadeOut(500);
-
+                .addClass('animated slideOutRight').fadeOut(500)
+                .data("isOpen", false);
         }
 
     });
