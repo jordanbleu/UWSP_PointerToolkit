@@ -56,6 +56,12 @@
             controller: 'campusEventsController'
         });
 
+        $stateProvider.state('gpa', {
+            url: '/gpa',
+            templateUrl: 'js/gpa/gpa.template.html',
+            controller: 'gpaController'
+        });
+
         $urlRouterProvider.otherwise('/dashboard');
         $ionicConfigProvider.scrolling.jsScrolling(false);
         $ionicConfigProvider.navBar.alignTitle('center');

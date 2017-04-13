@@ -95,7 +95,8 @@ function GenerateListItem(eventObject) {
                      "</div>"
                 "</a>";
 
-    $("#eventsList").append(html);
+                $("#eventsList").append(html);
+    
 }
 
 // This creates the HTML elements for the calendar

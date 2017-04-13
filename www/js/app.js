@@ -13,6 +13,7 @@
 			 'sports',
              'about',
              'campusEvents',
+             'gpa',
              '720kb.tooltips'
            ]);
 
@@ -43,5 +44,8 @@
 
   angular
   .module('campusEvents', ['leaflet-directive', 'swipe']);
+
+  angular
+    .module('gpa', ['leaflet-directive', 'swipe']);
 	
 })();
