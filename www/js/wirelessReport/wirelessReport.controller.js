@@ -30,11 +30,12 @@
     }
 })();
 
-//variable to hold device information later to be converted to csv
+//variables to hold device and access point information to be converted to csv
 var deviceInfoCSV = 'Device Platform, Device UUID, Device Version, Connection Type, ' +
                     'Latitude, Longitude, Accuracy, Timestamp\n';
 
 var wapInfoCSV = 'Level, SSID, BSSID, Frequency';
+
 var date = new Date();
 var deviceInfoFileName = 'deviceInfo-' + formatDateToYMDHMS(date);
 var wapInfoFileName = 'wapInfo-' + formatDateToYMDHMS(date);
@@ -62,6 +63,7 @@ function getDeviceInfo() {
     }
     else {
         alert('This feature is not supported on this platform.')
+        $ionicHistory.goBack();
     }
 }
 
@@ -169,8 +171,6 @@ function composeEmail() {
 
 function getConnectionInfo() {
 
-    WifiWizard.getScanResults(listHandler);
-
     function listHandler(resultsList) {
 
         var element = document.getElementById('connectionInfo');
@@ -188,7 +188,11 @@ function getConnectionInfo() {
                 wapInfoCSV += ',';
             }
         }
+
         element.innerHTML = "Wireless Information Loaded";
         getConnectionDone = true;
     }
+
+    WifiWizard.getScanResults(listHandler);
+
 }

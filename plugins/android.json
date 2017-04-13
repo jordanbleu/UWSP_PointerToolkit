@@ -13,9 +13,6 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
-        "cordova-plugin-email-composer": {
-            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
-        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
@@ -35,6 +32,12 @@
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "org.apache.cordova.signal-strength": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-email": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         }
     },
