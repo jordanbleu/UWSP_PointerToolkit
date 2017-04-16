@@ -19,6 +19,13 @@
 .no-border {
   border: 0 !important;
 }
+
+.platform-android .has-header{
+    top: 45px !important;
+}
+
+
+
 .platform-android .bar .title {
   font-weight: bold;
   font-style: normal;
@@ -26,6 +33,7 @@
   color: #fff;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.4) !important;
 }
+
 
 .platform-ios .bar .title {
   font-weight: bold;
