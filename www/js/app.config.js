@@ -62,6 +62,12 @@
             controller: 'gpaController'
         });
 
+        $stateProvider.state('wirelessReport', {
+            url: '/wirelessReport',
+            templateUrl: 'js/wirelessReport/wirelessReport.template.html',
+            controller: 'WirelessReportController'
+        });
+
         $urlRouterProvider.otherwise('/dashboard');
         $ionicConfigProvider.scrolling.jsScrolling(false);
         $ionicConfigProvider.navBar.alignTitle('center');
