@@ -87,7 +87,9 @@ function ParseResult(xml_data) {
 
 // Adds a new list item to the ion-list defined on the template
 function GenerateListItem(eventObject) {
-    var html = "<a href='#' class='eventListLink' onclick='window.open(\"" + eventObject.link + "\", \"_system\");'>" +
+    var eventId = "ev_" + $(".eventItem").length;
+
+    var html = "<a href='#' id='" + eventId + "' class='eventListLink' onclick='window.open(\"" + eventObject.link + "\", \"_system\");'>" +
                     "<div class='eventItem item item-icon-left'>" +
                        "<div class='calendarItem icon'>" + MakeCalendarElement(eventObject.date) + "</div>" + 
                        "<h3 class='eventItemTitle'>" + eventObject.title + "</h3>" + 
@@ -95,15 +97,40 @@ function GenerateListItem(eventObject) {
                      "</div>"
                 "</a>";
 
-                $("#eventsList").append(html);
-    
+                // The following code used DOM Traversal to asyncronously sort the element by date
+                // get each date element
+                var dates = $(".eventDate");
+
+                var latestDateId = "";
+                
+
+                for (var i = 0; i < dates.length; i++) {
+                    if (latestDateId == "") {
+                        var thisDate = new Date(eventObject.date);
+                        var thatDate = new Date(dates[i].innerHTML);
+
+                        // if the current element has a date later than our new element, 
+                        // mark that element as the latest one
+                        if (thatDate > thisDate) {
+                            var x = dates[i];
+                            // This jQuery chain gets the element's id of the <a> element
+                            latestDateId = $(x).parent().parent().attr("id");
+                            // if an element was found with a date greater than this one, add the new element just before it
+                            $("#" + latestDateId).prepend(html);
+                        }
+                    }
+                }
+
+                 // if no element had a date bigger than this one, add it to the end
+                if (latestDateId == "") {
+                    $("#eventsList").append(html);
+                }
 }
 
 // This creates the HTML elements for the calendar
 function MakeCalendarElement(evDate) {
     
     var date = new Date(evDate); // get today's date
-    date.setDate(date.getDate() + 1); // make the date tomorrow's date (so it displays events happening today
 
 
     var month = "";
@@ -157,8 +184,10 @@ function MakeCalendarElement(evDate) {
 // returns true if the supplied date is past today's date
 function isExpired(eventDate_str) {
     var today = new Date();
-    var eventDate = new Date(eventDate_str);
 
+    // to display events happening today, we have to set yesterday's date as the threshold
+    today.setDate(today.getDate() - 1);
+    var eventDate = new Date(eventDate_str);
 
     return (today > eventDate);
 }

@@ -14,6 +14,7 @@
              'about',
              'campusEvents',
              'gpa',
+             'wirelessReport',
              '720kb.tooltips'
            ]);
 
@@ -43,9 +44,12 @@
     .module('about', ['leaflet-directive', 'swipe']);
 
   angular
-  .module('campusEvents', ['leaflet-directive', 'swipe']);
+    .module('campusEvents', ['leaflet-directive', 'swipe']);
 
   angular
     .module('gpa', ['leaflet-directive', 'swipe']);
+
+  angular
+    .module('wirelessReport', ['leaflet-directive', 'swipe']);
 	
 })();

@@ -70,9 +70,10 @@
     <script src="js/about/about.controller.js"></script>
     <script src="js/campusEvents/campusEvents.controller.js"></script>
     <script src="js/gpa/gpa.controller.js"></script>
+    <script src="js/wirelessReport/wirelessReport.controller.js"></script>
     
 </head>
-<body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; width: 99% !important; height: 95% !important">
+<body ng-app="starter" ng-controller="StarterController" style="overflow-x: hidden !important; overflow: hidden !important; width: 99% !important; height: 100% !important" on-swipe-left="showMenu();">
     <ion-nav-bar class="UWSP-Purple">
         <ion-nav-back-button animation="no-animation" class="no-text UWSP-Purple" style="border: 0;" ng-click="myGoBack()">
             <i class="icon fa fa-chevron-left"></i>
@@ -83,7 +84,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
 
-    <ion-modal-view id="dotMenu" class="hide" style="width:80%;left:20%;height:100%;top:0;">
+    <ion-modal-view id="dotMenu" class="hide" style="width:80%;left:20%;height:100%;top:0;" on-swipe-right="hideMenu()">
         <ion-header-bar class="UWSP-Purple bar bar-header active disable-user-behavior visible">
             <button class="no-text UWSP-Purple" ng-click="hideMenu()" style="border:none;width:50px;z-index:100;">
                 <i class="icon fa ion-close-round" style="font-size: 24px"></i>
@@ -127,14 +128,14 @@
 
             <a nav-transition="none" ui-sref="notes" ng-click="hideMenu()" class="">
                 <ion-item class="menuItem">
-                    <h5 class="menuItemText">Notes</h5>
+                    <h5 class="menuItemText">My Notes</h5>
                 </ion-item>
             </a>
 
 
             <a nav-transition="none" ui-sref="quickLinks" ng-click="hideMenu()" class="">
                 <ion-item class="menuItem">
-                    <h5 class="menuItemText">Links</h5>
+                    <h5 class="menuItemText">Quick Links</h5>
                 </ion-item>
             </a>
 
@@ -163,13 +164,12 @@
                     <h5 class="menuItemText">GPA Calculator</h5>
                 </ion-item>
             </a>
-
-            <!--<a nav-transition="none" ui-sref="about" ng-click="hideMenu()" onclick="alert('not yet implemented')" class="">
+            
+            <a nav-transition="none" ui-sref="wirelessReport" ng-click="hideMenu()" class="">
                 <ion-item class="menuItem">
-                    <h5 class="menuItemText">Campus Network</h5>
+                    <h5 class="menuItemText">Wireless Report</h5>
                 </ion-item>
-            </a>-->
-                       
+            </a>     
 
             <a nav-transition="none" ui-sref="about" ng-click="hideMenu()" class="">
                 <ion-item class="menuItem">
@@ -179,7 +179,7 @@
         </ion-content>
     </ion-modal-view>
 
-    <ion-nav-view id="ContentView" style="height:95% !important; overflow:no-display">
+    <ion-nav-view id="ContentView" style="height:100% !important; overflow:hidden !important">
         <!--Here's where all the content gets injected-->
     </ion-nav-view>
 </body>

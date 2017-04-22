@@ -62,6 +62,12 @@
             controller: 'gpaController'
         });
 
+        $stateProvider.state('wirelessReport', {
+            url: '/wirelessReport',
+            templateUrl: 'js/wirelessReport/wirelessReport.template.html',
+            controller: 'WirelessReportController'
+        });
+
         $urlRouterProvider.otherwise('/dashboard');
         $ionicConfigProvider.scrolling.jsScrolling(false);
         $ionicConfigProvider.navBar.alignTitle('center');
@@ -96,16 +102,20 @@
             $("#dotMenu").hide().removeClass('animated slideInRight')
                   .addClass('animated slideOutRight');
             //$ionicHistory.clearCache();
+        };
+
+        $scope.swipeLeft = function () {
+            showMenu();
         }
 
 
         // this here code shows the menu
         $scope.showMenu = function () {
-            
+
             $("#ContentView").animate({
                 opacity: 0.25
             }, 500);
-            
+
 
             $("#dotMenu")
                 .removeClass('animated slideOutRight')
@@ -113,17 +123,17 @@
                 .data("isOpen", true);
 
 
-        }
+        };
 
         // this here code hides the menu
         $scope.hideMenu = function () {
             $("#ContentView").animate({
                 opacity: 1
-            },500);
+            }, 500);
             $("#dotMenu").removeClass('animated slideInRight')
                 .addClass('animated slideOutRight').fadeOut(500)
                 .data("isOpen", false);
-        }
+        };
 
     });
 
