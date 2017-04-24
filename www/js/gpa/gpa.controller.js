@@ -1,5 +1,4 @@
-﻿
-(function () {
+﻿(function () {
     'use strict';
 
     function gpaController($scope, $ionicHistory, $timeout, $state) {
@@ -14,6 +13,11 @@
 
 
 })();
+var gpa;
+var cgpa;
+var creditSum;
+var classSum;
+var gradeSum;
 
 function CalculateGPA() {
     //get the value of the grades
@@ -25,6 +29,9 @@ function CalculateGPA() {
     gr6 = document.calcForm.grade6.value;
     gr7 = document.calcForm.grade7.value;
     gr8 = document.calcForm.grade8.value;
+
+    //total sum of grade points
+    gradeSum = +gr1 + +gr2 + +gr3 + +gr4 + +gr5 + +gr6 + +gr7 + +gr8;
 
     //get the value of the credits
     cr1 = document.calcForm.credit1.value;
@@ -48,9 +55,40 @@ function CalculateGPA() {
     class7 = gr7 * cr7;
     class8 = gr8 * cr8;
     
-    classSum = class1 + +class2 + +class3 + +class4 + +class5 + +class6 + +class7 + +class8;
+    classSum = +class1 + +class2 + +class3 + +class4 + +class5 + +class6 + +class7 + +class8;
     
     gpa = parseFloat(classSum / creditSum);
     alert("Your GPA is: " + gpa.toFixed(2));
 }
 
+////calculate cumulative gpa
+//function calculateCGPA() {
+//    pcg = document.getElementById('pcg').value;
+//    pcc = document.getElementById('pcc').value;
+//    gpa = gpa.toFixed(2);
+
+//    totalPoints = pcg * pcc;
+//    alert(totalPoints);
+
+//    totalGrade = totalGrade.toFixed(2);
+
+//    totalCredit = +creditSum + +pcc;
+
+//    cgpa = gpa(totalPoints/totalCredit);
+//    alert('Your cumulative GPA is: ' + cgpa.toFixed(2));
+//}
+
+////here is how to switch between the two calculators
+//function showGPA(elem) {
+//    //display semester gpa calculator
+//    if (elem.value == 0) {
+//        document.getElementById('CGPAForm').style.display = "none";
+//        document.getElementById('GPAForm').style.display = "block";
+//    }
+
+//    //display cumulative gpa calculator
+//    if (elem.value == 1) {
+//        document.getElementById('GPAForm').style.display = "none";
+//        document.getElementById('CGPAForm').style.display = "block";
+//    }
+//}

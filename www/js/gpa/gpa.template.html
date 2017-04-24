@@ -1,14 +1,32 @@
-﻿<ion-view cache-view="true" class="has-header slideInRight" title="GPA Calculator" style="margin-top: 45px; position:absolute;">
-    <ion-list class="has-header">  
-        <ion-col class="list">
-            
-            <!--<ion-grid>-->
+﻿<ion-view cache-view="true" class="animated fadeInRight" title="GPA Calculator" style="margin-top: 45px; position:absolute;">
+
+        <!--<label class="item item-input item-select" style="margin-bottom: 5px;">
+            <div class="input-label">Select</div> 
+                <select onchange="showGPA(this);">
+                    <option value="0">Semester GPA</option>
+                    <option value="1">Cumulative GPA</option>
+                </select>
+        </label>
+
+                <form name="CGPAForm" id="CGPAForm" style="display:none;">
+                    <label class="item item-input" style="margin-bottom:5px;">
+                        <input id="pcg" type="text" placeholder="Prior Cumulative GPA"/>
+                    </label>
+                    <label class="item item-input" style="margin-bottom:5px;">
+                        <input id="pcc" type="text" placeholder="Prior Cumulative Credits"/>
+                    </label>
+                    <button onclick="calculateCGPA();" style="width:100%;" class="button ng-binding button-positive">Calculate Cumulative</button>
+                    <button type="reset" id="resetForm" style="width:100%;" class="button ng-binding button-positive">Reset</button>
+                </form>-->
+
+                <div id="GPAForm">
+                <ion-scroll class="_hidden" style="height:80vh;">
                 <form name="calcForm" id="calcForm">
                     <!--Class 1-->
-                    <label id="grade1" class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px; border-bottom: 20px; border-bottom-color: #a075b2;">
+                    <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade1">
-                            <option selected="selected" value=""></option>
+                            <option selected></option>
                             <option value="4">A</option>
                             <option value="3.67">A-</option>
                             <option value="3.33">B+</option>
@@ -23,7 +41,7 @@
                         </select>
                     </label>
 
-                    <label class="item item-input item-select" style="width:50%; float:right; margin-bottom: 5px; border-bottom: 5px; border-color: #a075b2;">
+                    <label class="item item-input item-select" style="width:50%; float:right; margin-bottom: 5px;">
                         <div class="input-label">Credits</div>
                         <select id="credit1">
                             <option selected></option>
@@ -31,6 +49,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -61,6 +80,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -91,6 +111,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -121,6 +142,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -151,6 +173,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -181,6 +204,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -211,6 +235,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
@@ -241,16 +266,13 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </label>
 
                     <button onclick="CalculateGPA();" style="width:100%;" class="button ng-binding button-positive">Calculate GPA</button>
                     <button type="reset" id="resetForm" style="width:100%;" class="button ng-binding button-positive">Reset</button>
                 </form>
-        <!--</ion-grid>-->
-                   
-        <!--<button onclick="CalculateGPA();" style="width:100%;" class="button ng-binding button-positive">Calculate GPA</button>
-        <button type="reset" onclick="resetForm()" id="resetForm" class="button ng-binding button-positive" style="width:100%;">Reset</button>-->
-        </ion-col>
-    </ion-list>
+        </ion-scroll>
+    </div>
 </ion-view>
