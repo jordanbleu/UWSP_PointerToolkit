@@ -5,27 +5,27 @@
         $("#frmCumulativeGPA").slideUp(0);
 
         $("#btnAddRow").click(function () {
-            var activeForm = $("cboFormSelect").val();
+            var activeForm = $("#cboFormSelect").val();
 
             if (activeForm == "semestergpa") {
-                $(".gpaRow").first().clone().appendTo("#frmSemesterGPA").find(".btnDeleteRow").prop("disabled", false).click(function () {
-                    $(this).parent().parent().remove();
+                $(".gpaRow").first().clone().appendTo("#frmSemesterGPA").slideUp(0).slideDown("fast")
+                        .find(".btnDeleteRow").prop("disabled", false).click(function () {
+                    $(this).parent().parent().slideUp("fast").remove();
                 });
             } else {
-                var el = $(".cumulativeRow").first().clone().appendTo("#frmCumulativeGPA").find(".btnDeleteRow").prop("disabled", false).click(function () {
-                    $(this).parent().parent().remove();
+                var el = $(".cumulativeRow").first().clone().appendTo("#frmCumulativeGPA").slideUp(0).slideDown("fast")
+                        .find(".btnDeleteRow").prop("disabled", false).click(function () {
+                    $(this).parent().parent().slideUp("fast").remove();
                     // remove the buttons except for the last row
                     $(".btnDeleteRow").hide();
                     $(".cumulativeRow").last().find(".btnDeleteRow").show();
-                    $(".cumulativeRow").last().find(".cumSemName").first().html("Semester " + count + " GPA:");
+                    $(".cumulativeRow").find(".cumSemName").each(function (index) {
+                        $(this).html("Semester " + (index+1) + " GPA:");
+                    });
                 });
 
                 var count = $(".cumulativeRow").length;
                 console.log(count);
-
-                // remove the buttons except for the last row
-                $(".btnDeleteRow").hide();
-                $(".cumulativeRow").last().find(".btnDeleteRow").show();
                 $(".cumulativeRow").last().find(".cumSemName").first().html("Semester " + count + " GPA:");
                 
             }
@@ -34,7 +34,7 @@
         });
 
         $("#btnCalculateGPA").click(function () {
-            var activeForm = $("cboFormSelect").val();
+            var activeForm = $("#cboFormSelect").val();
 
             if (activeForm == "semestergpa") {
                 var gradeSum = 0.0;
