@@ -1,73 +1,144 @@
-﻿<ion-view cache-view="true" class="animated fadeInRight" title="GPA Calculator" style="margin-top: 45px; position:absolute;">
+﻿<ion-view cache-view="true" class="has-header slideInRight" title="GPA Calculator">
+    <div class="scroll scroll-content">
+        <label class="cboForm item item-input item-select" style="width:100%">
+            <select id="cboFormSelect" style="width: 100%;">
+                <div id="DataSourceLabel" style="font-weight:bold;">Form:</div>
+                <option value="semestergpa">Semester GPA</option>
+                <option value="cumulativegpa">Cumulative GPA</option>
+            </select>
+        </label>
 
-    
-    <label class="cboForm item item-input item-select" style="width:100%">
-        <select id="cboFormSelect" style="width: 100%;">
-            <option value="semestergpa">Semester GPA</option>
-            <option value="cumulativegpa">Cumulative GPA</option>
-        </select>
-    </label>
-    
 
-    <div id="frmCumulativeGPA">
-        <div class="cumulativeRow row">
-            <div class="col-40 colClass">
-                <h5 class="cumSemName">Semester 1 GPA:</h5>
+        <div id="frmCumulativeGPA">
+            <div class="cumulativeRow row">
+                <div class="col-50 colClass">
+                    <h5 class="cumSemName">Semester 1 GPA:</h5>
+                </div>
+
+                <div class="col-30 colCumulativeGpa">
+                    <input type="text" class="txtSemGPA" style="width: 100%;" />
+                </div>
+
+                <div class="col-20 colDeleteRow">
+                    <button class="btnDeleteRow"><div class="ion-icon ion-android-remove-circle"></div></button>
+                </div>
             </div>
 
-            <div class="col-40 colCumulativeGpa">
-                <input type="text" class="txtSemGPA" style="width: 100%;"/>
-            </div>
+        </div>
 
-            <div class="col-20 colDeleteRow">
-                <button class="btnDeleteRow">DEL</button>
+
+        <div id="frmSemesterGPA">
+
+            <div class="gpaRow row">
+                <div class="col-50 colGrade">
+                    <label class="cboGrade item item-input item-select" style="width:90%">
+                        <div>Grade</div>
+                        <select class="cboGradeValue">
+                            <option selected></option>
+                            <option value="4">A</option>
+                            <option value="3.67">A-</option>
+                            <option value="3.33">B+</option>
+                            <option value="3">B</option>
+                            <option value="2.67">B-</option>
+                            <option value="2.33">C+</option>
+                            <option value="2">C</option>
+                            <option value="1.67">C-</option>
+                            <option value="1.33">D+</option>
+                            <option value="1">D</option>
+                            <option value="0">F</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="colCredit col-30">
+                    <input type="number" class="txtCreditValue item item-input" style="width:100%;height:100%" placeholder="Credits" />
+                </div>
+
+                <div class="colDeleteRow col-20">
+                    <button class="btnDeleteRow" style="width:100%;" disabled><div class="ion-icon ion-android-remove-circle"></div></button>
+                </div>
             </div>
         </div>
 
+        <button id="btnAddRow"><div id="addIcon" class="icon ion-android-add-circle"></div></button>
+        <button id="btnCalculateGPA" style="width:100%;" class="button">Calculate GPA</button>
+        <input type="text" id="txtResult" disabled />
     </div>
-    
-    
-    <div id="frmSemesterGPA">
-
-        <div class="gpaRow row" style="border: 2px solid pink">
-            <div class="col-50 colGrade">
-                <label class="cboGrade item item-input item-select" style="width:100%">
-                    <select class="cboGradeValue" style="width: 100%;">
-                        <option selected></option>
-                        <option value="4">A</option>
-                        <option value="3.67">A-</option>
-                        <option value="3.33">B+</option>
-                        <option value="3">B</option>
-                        <option value="2.67">B-</option>
-                        <option value="2.33">C+</option>
-                        <option value="2">C</option>
-                        <option value="1.67">C-</option>
-                        <option value="1.33">D+</option>
-                        <option value="1">D</option>
-                        <option value="0">F</option>
-                    </select>
-                </label>
-            </div>
-
-            <div class="colCredit col-30">
-                <input type="number" class="txtCreditValue item-input" style="width:100%;"/>
-            </div>
-
-            <div class="colDeleteRow col-20">
-                <button class="btnDeleteRow" style="width:100%;" disabled>DEL</button>
-            </div>
-        </div>
-    </div>
-
-    <button id="btnAddRow">ADD ROW +</button>
-    <button id="btnCalculateGPA">Calculate GPA</button>
-    <input type="text" id="txtResult" disabled />
 </ion-view>
 
 
+<style>
+    #btnCalculateGPA {
+        background-color: #f2af2b;
+        color: white;
+    }
+    #txtResult {
+        width: 100%;
+    }
 
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        <label class="item item-input item-select" style="margin-bottom: 5px;">
+    .cumSemName {
+        margin: 0px auto;
+        vertical-align: middle;
+        height: 100%;
+        color: white;
+        padding: 5px;
+        
+    }
+
+    #btnAddRow {
+        width:100%;
+        background-color: rgba(102,74,156,0.4);
+        color: white;
+        border: 1px solid #664a9c ;
+        padding: 2px; 
+        font-size: 24px;
+    }
+
+    .btnDeleteRow {
+        color: #f2af2b;
+        border: none;
+        background: rgba(0,0,0,0);
+        width: 100%;
+        height: 100% !important;
+        font-size: 24px;
+
+    }
+
+
+    .cboForm, #cboFormSelect {
+        width: 100%;
+        height: 48px !important;
+        background-color: #664a9c;
+        color:#f2af2b;
+    }
+    
+
+    .txtCreditValue, .cboGrade {
+        width: 98%;
+        height: 100%;
+        margin: 1%;
+    }
+
+    .txtCreditValue {
+        padding-left: 10px;
+    }
+
+    label {
+        margin: 0px;
+    }
+
+    .gpaRow, .cumulativeRow {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+
+
+
+        <!--<label class="item item-input item-select" style="margin-bottom: 5px;">
             <div class="input-label">Select</div>
                 <select onchange="showGPA(this);">
                     <option value="0">Semester GPA</option>
@@ -120,8 +191,8 @@
                             </select>
                         </label>
                     </div>
-                    <!--Class 2--
-                    <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
+                    <!--Class 2-->
+                    <!--<label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade">
                             <option selected></option>
@@ -149,7 +220,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </label>
+                    </label>-->
 
                     <!--Class 3-
                     !--<label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
@@ -335,8 +406,8 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </label>-->
-<!--
+                    </label>
+
                     <button onclick="add();" id="add" style="width:50%; float:left;" class="button ng-binding button-positive">Add</button>
                     <button onclick="remove();" id="remove" style="width:50%; float:right;" class="button ng-binding button-positive">Remove</button>
                     <button onclick="CalculateGPA();" id="calculateGPA" style="width:100%;" class="button ng-binding button-positive">Calculate GPA</button>
@@ -344,7 +415,6 @@
                 </form>
         </ion-scroll>
     </div>
-</ion-view>
+</ion-view>-->
 
 
--->
