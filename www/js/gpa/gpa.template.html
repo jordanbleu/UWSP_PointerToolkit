@@ -1,6 +1,6 @@
 ﻿<ion-view cache-view="true" class="animated fadeInRight" title="GPA Calculator" style="margin-top: 45px; position:absolute;">
 
-        <!--<label class="item item-input item-select" style="margin-bottom: 5px;">
+        <label class="item item-input item-select" style="margin-bottom: 5px;">
             <div class="input-label">Select</div> 
                 <select onchange="showGPA(this);">
                     <option value="0">Semester GPA</option>
@@ -17,15 +17,46 @@
                     </label>
                     <button onclick="calculateCGPA();" style="width:100%;" class="button ng-binding button-positive">Calculate Cumulative</button>
                     <button type="reset" id="resetForm" style="width:100%;" class="button ng-binding button-positive">Reset</button>
-                </form>-->
+                </form>
 
                 <div id="GPAForm">
                 <ion-scroll class="_hidden" style="height:80vh;">
                 <form name="calcForm" id="calcForm">
-                    <!--Class 1-->
+                    <div id="append">
+                        <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
+                            <div class="input-label">Grade</div>
+                            <select id="grade">
+                                <option selected></option>
+                                <option value="4">A</option>
+                                <option value="3.67">A-</option>
+                                <option value="3.33">B+</option>
+                                <option value="3">B</option>
+                                <option value="2.67">B-</option>
+                                <option value="2.33">C+</option>
+                                <option value="2">C</option>
+                                <option value="1.67">C-</option>
+                                <option value="1.33">D+</option>
+                                <option value="1">D</option>
+                                <option value="0">F</option>
+                            </select>
+                        </label>
+
+                        <label class="item item-input item-select" style="width:50%; float:right; margin-bottom: 5px;">
+                            <div class="input-label">Credits</div>
+                            <select id="credit">
+                                <option selected></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </label>
+                    </div>
+                    <!--Class 2--
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
-                        <select id="grade1">
+                        <select id="grade">
                             <option selected></option>
                             <option value="4">A</option>
                             <option value="3.67">A-</option>
@@ -43,7 +74,7 @@
 
                     <label class="item item-input item-select" style="width:50%; float:right; margin-bottom: 5px;">
                         <div class="input-label">Credits</div>
-                        <select id="credit1">
+                        <select id="credit">
                             <option selected></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -53,39 +84,8 @@
                         </select>
                     </label>
 
-                    <!--Class 2-->
-                    <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
-                        <div class="input-label">Grade</div>
-                        <select id="grade2">
-                            <option selected></option>
-                            <option value="4">A</option>
-                            <option value="3.67">A-</option>
-                            <option value="3.33">B+</option>
-                            <option value="3">B</option>
-                            <option value="2.67">B-</option>
-                            <option value="2.33">C+</option>
-                            <option value="2">C</option>
-                            <option value="1.67">C-</option>
-                            <option value="1.33">D+</option>
-                            <option value="1">D</option>
-                            <option value="0">F</option>
-                        </select>
-                    </label>
-
-                    <label class="item item-input item-select" style="width:50%; float:right; margin-bottom: 5px;">
-                        <div class="input-label">Credits</div>
-                        <select id="credit2">
-                            <option selected></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </label>
-
-                    <!--Class 3-->
-                    <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
+                    <!--Class 3-
+                    !--<label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade3">
                             <option selected></option>
@@ -115,7 +115,7 @@
                         </select>
                     </label>
 
-                    <!--Class 4-->
+                    
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade4">
@@ -146,7 +146,7 @@
                         </select>
                     </label>
 
-                    <!--Class 5-->
+                    
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade5">
@@ -177,7 +177,7 @@
                         </select>
                     </label>
 
-                    <!--Class 6-->
+                    
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade6">
@@ -208,7 +208,7 @@
                         </select>
                     </label>
 
-                    <!--Class 7-->
+                    
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade7">
@@ -239,7 +239,7 @@
                         </select>
                     </label>
 
-                    <!--Class 8-->
+                    
                     <label class="item item-input item-select" style="width:50%; float:left; margin-bottom: 5px;">
                         <div class="input-label">Grade</div>
                         <select id="grade8">
@@ -268,9 +268,11 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </label>
-
-                    <button onclick="CalculateGPA();" style="width:100%;" class="button ng-binding button-positive">Calculate GPA</button>
+                    </label>-->
+                    
+                    <button onclick="add();" id="add" style="width:50%; float:left;" class="button ng-binding button-positive">Add</button>
+                    <button onclick="remove();" id="remove" style="width:50%; float:right;" class="button ng-binding button-positive">Remove</button>
+                    <button onclick="CalculateGPA();" id="calculateGPA" style="width:100%;" class="button ng-binding button-positive">Calculate GPA</button>
                     <button type="reset" id="resetForm" style="width:100%;" class="button ng-binding button-positive">Reset</button>
                 </form>
         </ion-scroll>
