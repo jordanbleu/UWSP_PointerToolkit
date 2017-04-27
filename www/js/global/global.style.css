@@ -212,7 +212,6 @@ ion-header-bar {
   margin: 0 auto;
   width: 100%;
 }
-
 .buildingThumbnailContainer {
   height: 30%;
 }
@@ -221,15 +220,12 @@ ion-header-bar {
 .zoom15 {
   font-size: 1.4em;
 }
-
 .zoom16 {
   font-size: 1.0em;
 }
-
 .zoom17 {
   font-size: 0.8em;
 }
-
 .zoom18 {
   font-size: 0.7em;
 }
@@ -241,11 +237,9 @@ ion-header-bar {
     margin: 0;
     position: relative;
 }
-
 .scroll {
     height: 100%;
 }
-
 .angular-google-map-container {
     position: absolute;
     top: 0;
