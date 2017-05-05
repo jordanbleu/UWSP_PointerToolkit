@@ -152,21 +152,24 @@ ion-header-bar {
 }
 
 .dashboard-card {
+  background-position-y: -25px;
   margin: 0;
   background-color: #6639b6;
   color: #ffffff;
-  padding-bottom: 105%;
+  padding-bottom: 80%;
   width: 100%;
+  
   position: relative;
 }
 
 .dashboard-card > div {
   position: absolute;
-  top:5px;
+  top:73%;
   bottom:5px;
   left:5px;
   right:5px;
   background-size: contain !important;
+  height:100%;
 }
 
 .dashboard-card-title-box {
