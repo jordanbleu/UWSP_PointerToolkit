@@ -4,8 +4,8 @@
     <ReferenceCachePath>C:\Users\JordanBleu\AppData\Local\Temp\UWSP_PointerToolkit_refcache</ReferenceCachePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
-    <DebuggerFlavor>RippleNexus</DebuggerFlavor>
-    <AndroidEmulatorID>363F7AED-462C-46BD-9FEC-F1DD3B79916C;VS Emulator 5" KitKat (4.4) XXHDPI Phone</AndroidEmulatorID>
+    <DebuggerFlavor>AndroidEmulator</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidDevice;Device</AndroidEmulatorID>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Windows-AnyCPU'">
     <DebuggerFlavor>WindowsLocal</DebuggerFlavor>
