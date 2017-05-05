@@ -58,9 +58,12 @@
                     gpaSum += parseFloat($(this).val());
                     $("#txtResult").val(parseFloat(gpaSum / semCount).toFixed(2));
                 })
-
-
             }
+        });
+
+        $("#resetForm").click(function () {
+            //alert("ayy lmao");
+            $(':reset').val('');
         });
 
         $("#cboFormSelect").change(function () {
