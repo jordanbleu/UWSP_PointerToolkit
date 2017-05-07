@@ -7,11 +7,11 @@
 		.controller('WirelessReportController', WirelessReportController);
 
     function WirelessReportController($scope, $ionicHistory, $timeout, $state, $ionicPopup) {
-        $scope.data = {};
+
         $scope.showConfirm = function () {
             var confirmPopup = $ionicPopup.confirm({
-                title: 'Wireless Diagnostics',
-                template: 'This will run a Wireless Report to be emailed to UWSP IT for troubleshooting.'
+                title: 'Attention',
+                template: 'This will run a Wireless Report to be emailed to UWSP IT.'
             });
 
             confirmPopup.then(function (res) {
@@ -23,16 +23,24 @@
             });
         };
         $scope.showConfirm();
+
+        //reset these two variables to avoid data duplication when navigating to this page multiple times
+        deviceInfoCSV = 'Device Platform, Device UUID, Device Version, ' +
+                        'Connection Type, Latitude, Longitude, Timestamp\n';
+
+        wapInfoCSV = 'Level, SSID, BSSID, Frequency';
+
         checkConnectionDone = false;
         getConnectionDone = false;
         getGPSCoordsDone = false;
+        checkIfWifiIsOn = false;
         composeEmailDone = false;
     }
 })();
 
 //variables to hold device and access point information to be converted to csv
-var deviceInfoCSV = 'Device Platform, Device UUID, Device Version, Connection Type, ' +
-                    'Latitude, Longitude, Accuracy, Timestamp\n';
+var deviceInfoCSV = 'Device Platform, Device UUID, Device Version, ' +
+                    'Connection Type, Latitude, Longitude, Timestamp\n';
 
 var wapInfoCSV = 'Level, SSID, BSSID, Frequency';
 
@@ -43,9 +51,9 @@ var wapInfoFileName = 'wapInfo-' + formatDateToYMDHMS(date);
 var checkConnectionDone = false;
 var getConnectionDone = false;
 var getGPSCoordsDone = false;
+var checkIfWifiIsOn = false;
 var composeEmailDone = false;
 var composeEmailInterval;
-
 
 function getDeviceInfo() {
     var element = document.getElementById('deviceProperties');
@@ -59,7 +67,9 @@ function getDeviceInfo() {
         androidCommands();
     }
     else if (device.platform === "iOS") {
-        appleCommands();
+        alert('This feature is currently in development for iOS devices.');
+        $ionicHistory.goBack();
+        //appleCommands();
     }
     else {
         alert('This feature is not supported on this platform.')
@@ -68,23 +78,26 @@ function getDeviceInfo() {
 }
 
 function androidCommands() {
-    checkConnection();
-    getConnectionInfo();
-    getGPSCoords();
+    checkIfWifiEnabled();
 
-    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 100);
+    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 1000);
 }
 
 function appleCommands() {
+    getConnectionDone = true; //not supported in iOS
+    checkIfWifiIsOn = true; //not supported in iOS
     checkConnection();
-    getConnectionInfo();
     getGPSCoords();
 
-    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 100);
+    composeEmailInterval = window.setInterval(checkIfReadyToEmail, 1000);
 }
 
 function checkIfReadyToEmail() {
-    if (checkConnectionDone && getConnectionDone && getGPSCoordsDone && !composeEmailDone) {
+    console.log(checkConnectionDone);
+    console.log(getConnectionDone);
+    console.log(getGPSCoordsDone);
+    console.log(checkIfWifiIsOn);
+    if (checkConnectionDone && getConnectionDone && getGPSCoordsDone && checkIfWifiIsOn && !composeEmailDone) {
         composeEmail();
         window.clearInterval(composeEmailInterval);
     }
@@ -110,29 +123,31 @@ function checkConnection() {
     deviceInfoCSV += states[networkState] + ', ';
 
     checkConnectionDone = true;
+
+    getGPSCoords();
 }
 
 function getGPSCoords() {
 
     var onSuccess = function (position) {
-        var GPSlocation = ('Latitude: ' + position.coords.latitude + '<br />' +
-         'Longitude: ' + position.coords.longitude + '<br />' +
-         'Accuracy: ' + position.coords.accuracy + '<br />' +
-         'Timestamp: ' + new Date(position.timestamp) + '<br />');
+        getGPSCoordsDone = true;
+
+        var GPSlocation = 'Latitude: ' + position.coords.latitude + '<br />' +
+                          'Longitude: ' + position.coords.longitude + '<br />';
+                          //'Accuracy: ' + position.coords.accuracy + '<br />' +
+                          //'Timestamp: ' + new Date(position.timestamp) + '<br />';
 
         var element = document.getElementById('GPSCoords');
         element.innerHTML = 'GPS Information: <br />' + GPSlocation;
 
-        deviceInfoCSV += position.coords.latitude + ', ' + position.coords.longitude + ', ' +
-                         position.coords.accuracy + ', ' + formatDateToYMDHMS(date) + ', ';
-
-        getGPSCoordsDone = true;
+        deviceInfoCSV += position.coords.latitude + ', ' + position.coords.longitude +
+                        ', ' + formatDateToYMDHMS(date);
     };
     var onFailure = function () {
         var element = document.getElementById('GPSCoords');
-        element.innerHTML = 'GPS Location: Failed';
+        element.innerHTML = 'GPS Location Failed To Load';
 
-        deviceInfoCSV += 'null, null, null, null, null, ' + formatDateToYMDHMS(date);
+        deviceInfoCSV += 'null, null, null, ' + formatDateToYMDHMS(date);
 
         getGPSCoordsDone = true;
     }
@@ -141,30 +156,31 @@ function getGPSCoords() {
 }
 
 function composeEmail() {
-
     var deviceInfoAtt = btoa(deviceInfoCSV);
     var wapInfoAtt = btoa(wapInfoCSV);
-    composeEmailDone = true;
 
     cordova.plugins.email.open({
-        to: 'mbuta331@uwsp.edu',
+        to: 'tooncall@uwsp.edu',
         //cc: '',
         //bcc: ['john@doe.com', 'jane@doe.com'],
-        subject: 'Test',
-        body: 'Test',
+        subject: 'UWSP Wireless Troubleshooting Report',
+        body: 'This is an auto-generated report from the Pointer Toolkit app (version 1.0).',
         attachments: [
             'base64:' + deviceInfoFileName + '.csv//' + deviceInfoAtt,
             'base64:' + wapInfoFileName + '.csv//' + wapInfoAtt
         ]
     })
+    composeEmailDone = true;
 }
 
 function getConnectionInfo() {
 
-    function listHandler(resultsList) {
+    checkIfWifiIsOn = true;
 
-        var element = document.getElementById('connectionInfo');
-        element.innerHTML = "";
+    var element = document.getElementById('connectionInfo');
+    element.innerHTML = "";
+
+    function listHandler(resultsList) {
 
         for (var i = 0; i < resultsList.length; i++) {
             wapInfoCSV += '\n' + resultsList[i].level + ',' +
@@ -179,8 +195,65 @@ function getConnectionInfo() {
 
         element.innerHTML = "Wireless Information Loaded";
         getConnectionDone = true;
+
+        //wait five seconds to give wireless time to connect to remembered networks
+        window.setTimeout(checkConnection, 5000);
     }
 
-    WifiWizard.getScanResults(listHandler);
+    function fail() {
+        element.innerHTML = "Wireless Information Failed To Load";
+        getConnectionDone = true;
+        //wait five seconds to give wireless time to connect to remembered networks
+        window.setTimeout(checkConnection, 5000);
+    }
 
+    WifiWizard.getScanResults(listHandler, fail);
+
+}
+
+function checkIfWifiEnabled() {
+
+    function result(isEnabled) {
+        if (isEnabled) {
+            getConnectionInfo();
+        }
+        else {
+            enableWifi();
+        }
+    }
+
+    function fail() {
+        checkConnection();
+        getConnectionInfo();
+    }
+
+    WifiWizard.isWifiEnabled(result, fail);
+}
+
+function enableWifi() {
+
+    function turnWifiOn() {
+        //wait two seconds to give wireless time to turn on fully
+        window.setTimeout(getConnectionInfo, 2000);
+    }
+
+    function fail() {
+        alert('Failed to turn on Wifi.');
+        getConnectionInfo();
+    }
+
+    WifiWizard.setWifiEnabled(true, turnWifiOn, fail);
+}
+
+//function getConnectedBSSID() {
+//    function gotBSSID(bssid) {
+//        deviceInfoCSV += bssid;
+//    }
+
+//    WifiWizard.getCurrentBSSID(gotBSSID, fail);
+//}
+
+function sendLogButton() {
+    composeEmailDone = false;
+    checkIfReadyToEmail();
 }
