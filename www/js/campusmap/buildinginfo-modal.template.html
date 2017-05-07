@@ -5,8 +5,8 @@
     </header>
     <ion-content padding="true">
         <div class="row" style="padding-top: 5em; height: 80%;">
-                <img id="thumbnail" class="buildingThumbnail" style="display: block; height: 100%; margin: 0 auto;" ng-src="./assets/img/{{building.imageUrl}}" alt="Building Photo" />
-                <div id="addressText" style="padding: 10px; font-size: 17px; font-weight: bold; color: white; position: absolute; margin: 0 auto; background: linear-gradient(rgba(254, 203, 99, 1), rgba(254, 203, 99, 0.7)); left: 50%; display: block;">{{building.address}}</div>
+                <img id="thumbnail" class="buildingThumbnail" style="position: absolute !important; top:150px !important;display: block; height: auto; width: 100%" ng-src="./assets/img/{{building.imageUrl}}" alt="Building Photo" />
+                <div id="addressText" style="top:150px;padding: 10px; font-size: 17px; font-weight: bold; color: white; position: absolute; margin-left:0px !important;background: linear-gradient(rgba(254, 203, 99, 1), rgba(254, 203, 99, 0.7)); display: block;">{{building.address}}</div>
         </div>
         <div class="row">
             <div class="col col-50">
