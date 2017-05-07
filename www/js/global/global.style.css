@@ -16,6 +16,10 @@
   color: #fff;
 
 }
+
+
+
+ 
 .no-border {
   border: 0 !important;
 }
@@ -32,6 +36,9 @@
   font-size: 21px;
   color: #fff;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.4) !important;
+}
+
+.platform-ios .bar {
 }
 
 

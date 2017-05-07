@@ -4,11 +4,10 @@
     <ion-content class="slideInRight">
         <div id="dataSourceSelectContainer">
             <label class="item item-input item-select slideInRight" style="height:48px; background-color: transparent">
-                <div id="DataSourceLabel" style="color:#f2af2b;font-weight:bold;">Source:</div>
-                <select id="dataSourceSelect" style="display: block; width: 100% !important; background-color: transparent; color:#f2af2b;">
+                <select id="dataSourceSelect" style="display: block; width: 100% !important; background-color: transparent; color:#f2af2b;font-size: 18px !important; font-weight: bold !important;">
                     <option value="EVENTS" selected>Campus Events</option>
-                    <option value="UWSPNEWS">UWSP in the News</option>
-                    <option value="NEWS">News Releases & Events</option>
+                    <option value="UWSPNEWS">News Articles</option>
+                    <option value="NEWS">News Releases</option>
                 </select>
             </label>
         </div>
@@ -23,6 +22,8 @@
     #dataSourceSelectContainer {
         width: 100%;
         height: 48px !important;
+        font-size: 18px !important;
+        font-weight: bold;
         background-color: #664a9c;
     }
 

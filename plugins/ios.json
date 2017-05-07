@@ -7,11 +7,20 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.pylonproducts.wifiwizard": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-email": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "cordova-plugin-geolocation": {
             "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "edu.uwsp.pointerToolkit"
         },
         "cordova-plugin-splashscreen": {

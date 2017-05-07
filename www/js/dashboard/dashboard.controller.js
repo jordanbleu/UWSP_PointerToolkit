@@ -3,6 +3,9 @@
     function DashboardController($scope, $ionicHistory, $timeout, $state) {
         var firstRun = true;
 
+        // A stupid but functional way to fix the layout on iOS
+        Apply_iOS_Patch();
+
         $timeout(function () {         
         });
 
@@ -45,6 +48,14 @@
 
         // Initialise Waves with the config
         Waves.init(wavesConfig);
+    }
+
+    function Apply_iOS_Patch() {
+        if ($(".platform-ios").length > 0) {
+            $("#iosFix").css("margin-top", "20%");
+        } else {
+            $("#iosFix").css("margin-top", "15%");
+        }
     }
 
     angular
