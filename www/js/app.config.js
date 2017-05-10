@@ -86,6 +86,8 @@
             angular.element(document.getElementsByTagName('ion-header-bar')).addClass('visible');
         });
         $scope.myGoBack = function () {
+
+
             // Code to show popup and then go back
             angular.element(document.getElementsByClassName('animated fadeInRight'))
             .removeClass('animated fadeInRight')
@@ -101,6 +103,9 @@
 
             $("#dotMenu").hide().removeClass('animated slideInRight')
                   .addClass('animated slideOutRight');
+            $("#ContentView").animate({
+                opacity: 1
+            }, 500);
             //$ionicHistory.clearCache();
         };
 

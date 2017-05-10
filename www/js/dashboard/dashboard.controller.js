@@ -6,6 +6,7 @@
         // A stupid but functional way to fix the layout on iOS
         Apply_iOS_Patch();
 
+
         $timeout(function () {         
         });
 
