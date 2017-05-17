@@ -49,7 +49,7 @@ var brewhausDaySayings =
                          "12:00PM to 10:00PM",
                         ]
 
-var brewhausWeekTimes = "Monday to Thursday<br />8:00AMAM to 11:00PM<br /><br />Friday<br />8:00AM to 11:00PM<br /><br />Saturday and Sunday<br />12:00PM to 10:00PM";
+var brewhausWeekTimes = "Monday to Thursday<br />8:00AM to 11:00PM<br /><br />Friday<br />8:00AM to 11:00PM<br /><br />Saturday and Sunday<br />12:00PM to 10:00PM";
 
 /****The Red Vest****/
 var redVestDaysTimes = [
