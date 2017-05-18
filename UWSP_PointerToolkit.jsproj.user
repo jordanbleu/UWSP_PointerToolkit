@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReferenceCachePath>C:\Users\Joe Hollman\AppData\Local\Temp\ramozhmq_UWSP_PointerToolkit_refcache</ReferenceCachePath>
+    <ReferenceCachePath>C:\Users\JordanBleu\AppData\Local\Temp\covxanji_UWSP_PointerToolkit_refcache</ReferenceCachePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <DebuggerFlavor>AndroidEmulator</DebuggerFlavor>
@@ -11,8 +11,8 @@
     <DebuggerFlavor>WindowsLocal</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
-    <DebuggerFlavor>RippleNexus</DebuggerFlavor>
-    <AndroidEmulatorID>AndroidEmulator;Google Android Emulator</AndroidEmulatorID>
+    <DebuggerFlavor>AndroidEmulator</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidDevice;Device</AndroidEmulatorID>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|iOS'">
     <DebuggerFlavor>RippleiPhone5</DebuggerFlavor>
